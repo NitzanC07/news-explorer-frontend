@@ -1,0 +1,9 @@
+.search-form__title {
+    font-family: 'Roboto_slab', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 64px;
+    color: #fff;
+    margin: 80px auto 0;
+}
