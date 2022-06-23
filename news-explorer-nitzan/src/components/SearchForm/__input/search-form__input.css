@@ -1,0 +1,19 @@
+.search-form__input {
+    margin-left: 24px;
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1A1B22;
+    border: 0;
+    width: 400px;
+}
+
+.search-form__input:focus {
+    outline: 0;
+}
+
+.search-form__input::placeholder {
+    color: #B6BCBF;
+}
