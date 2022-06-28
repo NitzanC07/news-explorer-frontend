@@ -9,4 +9,5 @@
     color: #fff;
     display: flex;
     align-items: center;
+    cursor: url('../../../images/cursor-lapka.svg'), pointer;
 }

@@ -1,6 +1,5 @@
-.header__link {
+.navigation-menu__link {
     margin: 0 0 0 76px;
     padding: 30px 0 26px 0;
     cursor: url(../../../images/cursor-lapka.svg), pointer;
-    border-bottom: 3px solid #fff;
 }

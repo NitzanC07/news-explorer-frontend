@@ -1,9 +1,19 @@
 .header__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
-    color: #fff;
-    cursor: url(../../../images/cursor-lapka.svg), pointer;
     border: 1px solid #fff;
     border-radius: 25px;
-    padding: 12px;
-    margin: 0 0 0 64px;
+    width: 176px;
+    height: 48px;
+    padding: 0;
+    margin: auto 104px auto 0;
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    cursor: url(../../../images/cursor-lapka.svg), pointer;
 }

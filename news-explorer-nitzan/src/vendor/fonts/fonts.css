@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+    src: url('../fonts/final-project_fonts_latin/roboto-400-regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Roboto_slab';
-    src: url('./Roboto_Slab/static/RobotoSlab-Regular.ttf');
+    src: url('./final-project_fonts_latin/roboto-slab-400-regular.woff') format('woff');
 }
