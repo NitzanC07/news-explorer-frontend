@@ -4,3 +4,7 @@
     border: 0;
     border-radius: 25px;
 }
+
+.news-card-list:hover {
+    box-shadow:  3px 3px 20px rgba(8, 29, 45, 0.1);
+}
