@@ -1,16 +1,16 @@
 import './App.css';
-import Header from '../Header/Header'
-import SearchForm from '../SearchForm/SearchForm';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 function App() {
   return (
     <div className="app">
+      <div className="app__page">
       
-      <div className='app__background'>
-        <Header />
-        <SearchForm />
+        <Main />
+        <Footer />
+
       </div>
-      
     </div>
   );
 }
