@@ -1,4 +1,4 @@
-.news-card__cards {
+.news-card-list__cards {
     display: flex;
     flex-direction: column;
     align-items: center;

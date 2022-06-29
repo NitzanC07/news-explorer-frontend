@@ -1,4 +1,4 @@
-.news-card__button {
+.news-card-list__button {
     width: 288px;
     height: 64px;
     background-color: #fff;
@@ -17,6 +17,6 @@
     color: #1A1B22;
 }
 
-.news-card__button:hover {
+.news-card-list__button:hover {
     background-color: #E8E8E8;
 }
