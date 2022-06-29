@@ -1,4 +1,4 @@
-.news-card__cards-container {
+.news-card-list__cards-container {
     margin: 0 0 64px 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

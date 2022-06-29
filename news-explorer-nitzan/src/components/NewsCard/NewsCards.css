@@ -1,5 +1,11 @@
 .news-card {
-    margin: 0;
-    padding: 80px 104px;
-    background-color: #F5F6F7;
+    width: 400px;
+    max-height: 576px;
+    background-color: #fff;
+    border: 0;
+    border-radius: 25px;
+}
+
+.news-card:hover {
+    box-shadow:  3px 3px 20px rgba(8, 29, 45, 0.1);
 }

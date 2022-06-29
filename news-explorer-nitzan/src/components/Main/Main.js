@@ -1,7 +1,7 @@
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm';
 import About from '../About/About';
-import NewsCard from '../NewsCard/NewsCard';
+import NewsCardList from '../NewsCardList/NewsCardList';
 
 function Main(props) {
 
@@ -12,7 +12,7 @@ function Main(props) {
                 <SearchForm />
             </div>
 
-            <NewsCard />
+            <NewsCardList />
 
             <About />
         </main>
