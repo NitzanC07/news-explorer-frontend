@@ -1,4 +1,4 @@
-import NewsCard from "../NewsCard/newsCard";
+import NewsCard from "../NewsCard/NewsCard";
 import image01 from "../../images/cards-images/image_08.png";
 import image02 from "../../images/cards-images/image_04.png";
 import image03 from "../../images/cards-images/image_07.png";
