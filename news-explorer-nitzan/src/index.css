@@ -2,18 +2,18 @@
 @import url('./vendor/normalize.css');
 @import url('./vendor/fonts/fonts.css');
 /* Global styles in App component */
-@import url('./components/App/App.css');
+@import url('./components/App/app.css');
 @import url('./components/App/__page/app__page.css');
 /* Styles in Main component */
-@import url('./components/Main/Main.css');
+@import url('./components/Main/main.css');
 @import url('./components/Main/__background/main__background.css');
 /* Styles in Navigation menu */
-@import url('./components/Navigation/Navigation.css');
+@import url('./components/Navigation/navigation.css');
 @import url('./components/Navigation/__links/navigation-menu__links.css');
 @import url('./components/Navigation/__link/navigation-menu__link.css');
 @import url('./components/Navigation/__link/_active/navigation-menu__link_active.css');
 /* Styles in Header component */
-@import url('./components/Header/Header.css');
+@import url('./components/Header/header.css');
 @import url('./components/Header/__title/header__title.css');
 @import url('./components/Header/__menu/header__menu.css');
 @import url('./components/Header/__button/header__button.css');
@@ -24,30 +24,30 @@
 @import url('./components/SearchForm/__search-field/search-form__search-field.css');
 @import url('./components/SearchForm/__input/search-form__input.css');
 @import url('./components/SearchForm/__button/search-form__button.css');
-
 /* Style in New card list component - for each card */
-@import url('./components/NewsCardList/NewsCardList.css');
+@import url('./components/NewsCardList/news-card-list.css');
+@import url('./components/NewsCard/__save-button/news-card__save-button.css');
+@import url('./components/NewsCard/__save-button-icon/news-card__save-button-icon.css');
+@import url('./components/NewsCard/__signin/news-card__signin.css');
 @import url('./components/NewsCardList/__title/news-card-list__title.css');
 @import url('./components/NewsCardList/__cards/news-card-list__cards.css');
 @import url('./components/NewsCardList/__cards-container/news-card-list__cards-container.css');
 @import url('./components/NewsCardList/__button/news-card-list__button.css');
-
 /* Styles in News cards component */
-@import url('./components/NewsCard/NewsCards.css');
+@import url('./components/NewsCard/news-cards.css');
 @import url('./components/NewsCard/__image/news-card__image.css');
 @import url('./components/NewsCard/__time/news-card__time.css');
 @import url('./components/NewsCard/__title/news-card__title.css');
 @import url('./components/NewsCard/__text/news-card__text.css');
 @import url('./components/NewsCard/__source/news-card__source.css');
-
 /* Styles in About component */
-@import url('./components/About/About.css');
+@import url('./components/About/about.css');
 @import url('./components/About/__image/about__image.css');
 @import url('./components/About/__description/about__description.css');
 @import url('./components/About/__title/about__title.css');
 @import url('./components/About/__text/about__text.css');
 /* Styles in Footer component */
-@import url('./components/Footer/Footer.css');
+@import url('./components/Footer/footer.css');
 @import url('./components/Footer/__title/footer__title.css');
 @import url('./components/Footer/__links/footer__links.css');
 @import url('./components/Footer/__link/footer__link.css');

@@ -4,6 +4,7 @@
     background-color: #fff;
     border: 0;
     border-radius: 25px;
+    position: relative;
 }
 
 .news-card:hover {
