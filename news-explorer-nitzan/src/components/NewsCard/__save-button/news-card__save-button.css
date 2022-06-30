@@ -1,0 +1,8 @@
+.news-card__save-button {
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+        top: 24px;
+        right: 24px;
+}

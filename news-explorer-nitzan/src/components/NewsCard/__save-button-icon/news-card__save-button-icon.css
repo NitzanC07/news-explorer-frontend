@@ -1,0 +1,10 @@
+.news-card__save-button-icon {
+    background-color: #fff;
+    width: 40px;
+    border: 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url('../../../images/cursor-lapka.svg'), pointer;
+}
