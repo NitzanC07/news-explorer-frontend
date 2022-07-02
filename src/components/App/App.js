@@ -1,5 +1,8 @@
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
+import PopupSignin from '../PopupSignin/PopupSignin';
+import PopupSignup from '../PopupSignup/PopupSignup';
+import PopupRegisterSuccessfully from '../PopupRegisterSuccessfully/PopupRegisterSuccessfully';
 
 function App() {
   return (
@@ -10,6 +13,19 @@ function App() {
         <Footer />
 
       </div>
+
+      <PopupSignin 
+        isOpen={true}
+      />
+
+      <PopupSignup
+        isOpen={false}
+      />
+      
+      <PopupRegisterSuccessfully 
+        isOpen={false}
+      />
+
     </div>
   );
 }

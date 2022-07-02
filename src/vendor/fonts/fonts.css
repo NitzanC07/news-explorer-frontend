@@ -1,9 +1,14 @@
 @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/final-project_fonts_latin/roboto-400-regular.woff') format('woff');
+    src: url('../fonts/final-project_fonts_latin/roboto-400-regular.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Roboto_slab';
-    src: url('./final-project_fonts_latin/roboto-slab-400-regular.woff') format('woff');
+    src: url('./final-project_fonts_latin/roboto-slab-400-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./final-project_fonts_latin/inter-400-regular.woff2') format('woff2');
 }
