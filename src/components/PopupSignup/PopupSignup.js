@@ -2,11 +2,13 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm"
 
 function PopupSignup(props) {
 
-    console.log(props);
+    // console.log(props);
 
     return(
         <PopupWithForm 
             isOpen={props.isOpen ? 'popup_open' : ''}
+            onClose={props.onClose}
+            handleDifferentPopup={props.handleDifferentPopup}
             title="Sign up"
             buttonText="Sign up"
             text="Sign in"

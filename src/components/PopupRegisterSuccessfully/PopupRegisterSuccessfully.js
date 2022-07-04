@@ -1,18 +1,26 @@
-import PopupWithForm from "../PopupWithForm/PopupWithForm"
+import PopupWithInfo from "../PopupWithInfo/PopupWithInfo";
 
 function PopupRegisterSuccessfully(props) {
 
-    console.log(props);
+    function openSignin() {
+        props.onClose();
+        props.handleSignin();
+    }
 
     return(
-        <PopupWithForm 
+        <PopupWithInfo 
             isOpen={props.isOpen ? 'popup_open' : ''}
-            title="Registration successfully completed!"
-            text="Sign in"
+            onClose={props.onClose}
         >
-            
+            <h2 className="popup__title">{props.title}</h2>
+            <p 
+                className="popup__link-info"
+                onClick={openSignin}
+            >
+                Sign in
+            </p>
 
-        </PopupWithForm>
+        </PopupWithInfo>
     )
 }
 

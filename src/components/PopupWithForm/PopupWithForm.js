@@ -1,23 +1,26 @@
-import closeButton from '../../images/close.svg';
+import Popup from '../Popup/Popup';
 
-function PopupWithForm({isOpen, ...props}) {
+function PopupWithForm({name, isOpen, onClose, ...props}) {
 
     console.log(props);
 
+    function openDifferentPopup() {
+        onClose();
+        props.handleDifferentPopup();
+    }
+
     return(
-        <div className={`popup ${isOpen}`} >
-            <div className="popup__container">
-                <button className="popup__close-button">
-                    <img src={closeButton} alt="Close button" />
-                </button>
-                <form className="popup__form">
-                    <h2 className="popup__title">{props.title}</h2>
-                    {props.children}
-                    <button className="popup__submit-button button">{props.buttonText}</button>
-                    <p className="popup__text">or {props.text}</p>
-                </form>
-            </div>
-        </div>
+        <Popup isOpen={isOpen} name={name} onClose={onClose}>
+            <form className="popup__form">
+                <h2 className="popup__title">{props.title}</h2>
+                {props.children}
+                <button className="popup__submit-button button">{props.buttonText}</button>
+                <p className="popup__text">or 
+                    <a className="popup__link" onClick={openDifferentPopup}> {props.text} </a>
+                </p>
+            </form>
+        </Popup>
+        
     )
 }
 

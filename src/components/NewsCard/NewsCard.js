@@ -17,6 +17,11 @@ function NewsCard(props) {
         setIsShown(false);
     }
 
+    function saveIconClick() {
+        props.handleSignin();
+    }
+
+
     return(
         <div className="news-card">
             <img className="news-card__image" src={props.image} alt="card's pic" />
@@ -26,6 +31,7 @@ function NewsCard(props) {
                     type="button"
                     onMouseEnter={saveIconEnterMoouse}
                     onMouseLeave={saveIconLeaveMoouse}
+                    onClick={saveIconClick}
                 >
                     <img src={saveIcon} alt="Save icon" />
                 </button>

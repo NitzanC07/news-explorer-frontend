@@ -52,13 +52,16 @@
 @import url('./components/Footer/__links/footer__links.css');
 @import url('./components/Footer/__link/footer__link.css');
 /* Styles in Popup with form component */
-@import url('./components/PopupWithForm/popup.css');
-@import url('./components/PopupWithForm/__container/popup__container.css');
-@import url('./components/PopupWithForm/_open/popup_open.css');
-@import url('./components/PopupWithForm/__close-button/popup__close-button.css');
-@import url('./components/PopupWithForm/__form/popup__form.css');
-@import url('./components/PopupWithForm/__title/popup__title.css');
-@import url('./components/PopupWithForm/__field/popup__field.css');
-@import url('./components/PopupWithForm/__input/popup__input.css');
-@import url('./components/PopupWithForm/__submit-button/popup__submit-button.css');
-@import url('./components/PopupWithForm/__text/popup__text.css');
+@import url('./components/Popup/popup.css');
+@import url('./components/Popup/__container/popup__container.css');
+@import url('./components/Popup/_open/popup_open.css');
+@import url('./components/Popup/__close-button/popup__close-button.css');
+@import url('./components/Popup/__form/popup__form.css');
+@import url('./components/Popup/__title/popup__title.css');
+@import url('./components/Popup/__field/popup__field.css');
+@import url('./components/Popup/__input/popup__input.css');
+@import url('./components/Popup/__submit-button/popup__submit-button.css');
+@import url('./components/Popup/__text/popup__text.css');
+@import url('./components/Popup/__info/popup__info.css');
+@import url('./components/Popup/__link/popup__link.css');
+@import url('./components/Popup/__link-info/popup__link-info.css');

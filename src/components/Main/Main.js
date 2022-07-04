@@ -8,11 +8,15 @@ function Main(props) {
     return(
         <main className="main">
             <div className='main__background'>
-                <Header />
+                <Header 
+                    handleSignin={props.handleSignin}
+                />
                 <SearchForm />
             </div>
 
-            <NewsCardList />
+            <NewsCardList 
+                handleSignin={props.handleSignin}
+            />
 
             <About />
         </main>

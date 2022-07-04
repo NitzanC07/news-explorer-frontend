@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import closeButton from '../../images/close.svg';
 
 const Popup = ({ isOpen, name, onClose, children }) => {
 
@@ -29,19 +30,17 @@ const Popup = ({ isOpen, name, onClose, children }) => {
     }, [isOpen, onClose]);
   
     return (
-        <div 
-            className={`popup popup_type_${name} ${isOpen ? "popup_open" : ""}`}
-        >
-        
-            <div className={`popup__container${name === 'image' ? '-image' : ''}`}>
+        <div className={`popup ${isOpen}`} >
+            <div className="popup__container">
+                <button 
+                    className="popup__close-button"
+                    onClick={onClose}
+                >
+                    <img src={closeButton} alt="Close button" />
+                </button>
                 
                 { children }
 
-                <button
-                    className='popup__close-button popup__close-button_profile'
-                    type='button'
-                    onClick={onClose}
-                />
             </div>
         </div>
     );
