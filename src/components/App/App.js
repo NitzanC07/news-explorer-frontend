@@ -1,9 +1,11 @@
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Main from '../Main/Main';
+import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 import PopupSignin from '../PopupSignin/PopupSignin';
 import PopupSignup from '../PopupSignup/PopupSignup';
 import PopupRegisterSuccessfully from '../PopupRegisterSuccessfully/PopupRegisterSuccessfully';
-import { useState } from 'react';
 
 function App() {
 
@@ -33,11 +35,20 @@ function App() {
     <div className="app">
       <div className="app__page">
 
-        <Main 
-          handleSignin={handleSignin}
-          handleSignup={handleSignup}
-          handleRegisterSuccessfully={handleRegisterSuccessfully}
-        />
+        <Routes>
+
+          <Route exact path='/' element={
+            <Main 
+              handleSignin={handleSignin}
+              handleSignup={handleSignup}
+              handleRegisterSuccessfully={handleRegisterSuccessfully}
+            />} 
+          />
+
+          <Route path='/saved-news' element={<SavedNews />} />
+          
+        </Routes>
+
         <Footer />
 
         <PopupSignin 
