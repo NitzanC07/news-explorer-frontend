@@ -7,3 +7,9 @@
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width: 1450px) {
+    .footer__links {
+        margin-right: 40px;
+    }
+}

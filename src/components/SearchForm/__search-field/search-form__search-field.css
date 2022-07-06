@@ -10,3 +10,10 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 1450px) {
+    .search-form__search-field {
+        width: 448px;
+        height: 56px;
+    }
+}

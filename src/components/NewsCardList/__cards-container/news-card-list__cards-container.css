@@ -5,3 +5,10 @@
     gap: 16px;
     width: 100%;
 }
+
+@media screen and (max-width: 1450px) {
+    .news-card-list__cards-container {
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+}

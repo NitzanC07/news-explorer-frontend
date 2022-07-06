@@ -11,3 +11,9 @@
     align-items: center;
     cursor: url('../../../images/cursor-lapka.svg'), pointer;
 }
+
+@media screen and (max-width: 1450px) {
+    .header__title {
+        margin-left: 40px;
+    }
+}

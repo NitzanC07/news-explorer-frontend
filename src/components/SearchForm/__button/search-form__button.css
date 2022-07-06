@@ -20,3 +20,10 @@
 .search-form__button:active {
     background-color: #2A65CC;
 }
+
+@media screen and (max-width: 1450px) {
+    .search-form__button {
+        width: 160px;
+        height: 56px;
+    }
+}

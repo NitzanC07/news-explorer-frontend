@@ -8,4 +8,7 @@
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #B6BCBF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
