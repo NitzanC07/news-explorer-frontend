@@ -2,7 +2,7 @@ import Popup from '../Popup/Popup';
 
 function PopupWithInfo({name, isOpen, onClose, ...props}) {
 
-    console.log(props);
+    // console.log(props);
 
     return(
         <Popup isOpen={isOpen} name={name} onClose={onClose}>

@@ -1,6 +1,4 @@
 .footer__link {
-    margin: 30px 0 28px 30px;
-    padding: 0;
     cursor: url(../../../images/cursor-lapka.svg), pointer;
     font-family: 'Roboto';
     font-style: normal;
@@ -9,4 +7,5 @@
     line-height: 24px;
     text-align: center;
     color: #1A1B22;
+    text-decoration: none;
 }

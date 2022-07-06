@@ -1,9 +1,9 @@
 import Popup from '../Popup/Popup';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function PopupWithForm({name, isOpen, onClose, ...props}) {
 
-    console.log(props);
+    // console.log(props);
 
     function openDifferentPopup() {
         onClose();

@@ -1,11 +1,7 @@
 .navigation-menu__link {
-    margin: 0 0 0 76px;
-    padding: 30px 0 29px 0;
+    /* color: #fff; */
+    list-style: none;
+    font-family: 'Roboto';
+    text-decoration: none;
     cursor: url(../../../images/cursor-lapka.svg), pointer;
-}
-
-@media screen and (max-width: 1450px) {
-    .navigation-menu__link {
-        margin: 0 16px;
-    }
 }

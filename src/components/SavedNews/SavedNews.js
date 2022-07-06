@@ -1,8 +1,12 @@
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+
 function SavedNews(props) {
 
     return(
         <div className="saved-news">
-            <p>Saved News - personal page for regitered users.</p>
+            <SavedNewsHeader  
+                handleSignout={props.handleSignout}
+            />
         </div>
     )
 }

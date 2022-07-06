@@ -23,6 +23,10 @@ function App() {
     setPopupSigninOpen(true);
   }
 
+  function handleSignout() {
+    console.log('user sign out');
+  }
+
   function handleSignup() {
     setPopupSignupOpen(true);
   }
@@ -37,6 +41,12 @@ function App() {
 
         <Routes>
 
+          <Route path='/saved-news' element={
+            <SavedNews 
+              handleSignout={handleSignout}
+            />} 
+          />
+
           <Route exact path='/' element={
             <Main 
               handleSignin={handleSignin}
@@ -45,8 +55,6 @@ function App() {
             />} 
           />
 
-          <Route path='/saved-news' element={<SavedNews />} />
-          
         </Routes>
 
         <Footer />
