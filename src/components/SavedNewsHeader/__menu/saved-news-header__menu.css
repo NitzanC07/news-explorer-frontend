@@ -5,3 +5,15 @@
     padding: 0;
     color: #1A1B22;
 }
+@media screen and (max-width: 760px) {
+    .saved-news-header__menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s linear;
+        flex-direction: column;
+        background-color: #dadada;
+        width: 100%;
+        position: absolute;
+           top: 81px;
+    }
+}

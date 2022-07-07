@@ -5,7 +5,6 @@
     background-color: transparent;
     border: 1px solid #1A1B22;
     border-radius: 25px;
-    /* width: 176px; */
     height: 48px;
     padding: 0 0 0 19px;
     margin: auto 104px auto 0;
@@ -18,8 +17,10 @@
     cursor: url(../../../images/cursor-lapka.svg), pointer;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 760px) {
     .saved-news-header__button {
-        margin-right: 40px;
+        margin: 0 auto 24px;
+        width: 95%;
+        justify-content: space-around;
     }
 }

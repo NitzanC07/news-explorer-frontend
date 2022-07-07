@@ -14,13 +14,7 @@
 
 @media screen and (max-width: 1450px) {
     .news-card {
-        max-width: 224px;
-    }
-}
-
-@media screen and (max-width: 530px) {
-    .news-card {
-        max-width: 288px;
         width: 100%;
+        max-width: 400px;
     }
 }

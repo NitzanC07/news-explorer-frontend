@@ -13,14 +13,14 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 835px) {
     .news-card-list__cards-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 590px) {
     .news-card-list__cards-container {
         grid-template-columns: repeat(1, 1fr);
     }
