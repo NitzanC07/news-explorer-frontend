@@ -7,3 +7,8 @@
     line-height: 24px;
     color: #1A1B22;
 }
+
+.about__text::selection {
+    background-color: rgb(206, 255, 177);
+    color: rgb(138, 43, 226);
+}

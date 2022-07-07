@@ -8,6 +8,11 @@
     color: #1A1B22;
 }
 
+.about__title::selection {
+    background-color: rgb(206, 255, 177);
+    color: rgb(138, 43, 226);
+}
+
 @media screen and (max-width: 1450px) {
     .about__title {
         font-size: 30px;

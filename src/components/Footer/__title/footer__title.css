@@ -5,6 +5,7 @@
     font-size: 16px;
     line-height: 22px;
     margin: 0 0 0 104px;
+    margin-left: 0;
     padding: 0;
     color: #B6BCBF;
     display: flex;
@@ -13,7 +14,7 @@
 
 @media screen and (max-width: 1450px) {
     .footer__title {
-        margin-left: 40px;
+        margin-left: 0;
     }
 }
 
