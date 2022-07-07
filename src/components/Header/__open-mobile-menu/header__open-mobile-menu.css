@@ -1,0 +1,16 @@
+.header__open-mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 760px) {
+    .header__open-mobile-menu {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 0px solid #fff;
+        padding: 0;
+        margin: auto 16px;
+        cursor: url(../../../images/cursor-lapka.svg), pointer;
+    }
+}

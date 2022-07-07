@@ -2,3 +2,9 @@
     /* border-bottom: 3px solid #fff; */
     /* border-bottom: 3px solid #1A1B22; */
 }
+
+@media screen and (max-width: 760px) {
+    .navigation-menu__item_active {
+        border: 0;
+    }
+}

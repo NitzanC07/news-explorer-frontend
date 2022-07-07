@@ -12,3 +12,16 @@
         margin-bottom: 32px;
     }
 }
+
+@media screen and (max-width: 760px) {
+    .news-card-list__cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .news-card-list__cards-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

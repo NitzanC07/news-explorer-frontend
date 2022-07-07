@@ -2,14 +2,17 @@
     color: #000;
     list-style: none;
     font-family: 'Roboto';
-    margin: 0 106px 0 0;
+    margin: 0 42px 0 0;
     padding: 0;
     display: flex;
     align-items: center;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 760px) {
     .footer__links {
+        flex-direction: column;
+        align-items: flex-start;
         margin-right: 40px;
+        margin-right: 0;
     }
 }

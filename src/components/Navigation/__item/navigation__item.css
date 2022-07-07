@@ -8,3 +8,10 @@
         margin: 0 16px;
     }
 }
+
+@media screen and (max-width: 760px) {
+    .navigation-menu__item {
+        margin: 22px 16px 0;
+        padding: 0;
+    }
+}

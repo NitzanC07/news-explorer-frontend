@@ -5,3 +5,16 @@
     padding: 0;
     color: #fff;
 }
+
+@media screen and (max-width: 760px) {
+    .header__menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s linear;
+        flex-direction: column;
+        background-color: #1A1B22;
+        width: 100%;
+        position: absolute;
+           top: 81px;
+    }
+}

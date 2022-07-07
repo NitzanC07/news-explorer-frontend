@@ -8,3 +8,9 @@
         margin-top: 0;
     }
 }
+
+@media screen and (max-width: 760px) {
+    .about__description {
+        width: 100%;
+    }
+}

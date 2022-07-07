@@ -7,3 +7,9 @@
     color: #fff;
     margin: 32px auto 0;
 }
+
+@media screen and (max-width: 760px) {
+    .search-form__text {
+        margin: 16px 16px 122px;
+    }
+}

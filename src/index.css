@@ -15,9 +15,11 @@
 @import url('./components/Navigation/__link/navigation-menu__link.css');
 /* Styles in Header component */
 @import url('./components/Header/header.css');
+@import url('./components/Header/_background/header_background.css');
 @import url('./components/Header/__title/header__title.css');
 @import url('./components/Header/__title-link/header__title-link.css');
 @import url('./components/Header/__menu/header__menu.css');
+@import url('./components/Header/__menu/_open/header__menu_open.css');
 @import url('./components/Header/__button/header__button.css');
 @import url('./components/SavedNewsHeader/saved-news-header.css');
 @import url('./components/SavedNewsHeader/__title/saved-news-header__title.css');
@@ -25,6 +27,8 @@
 @import url('./components/SavedNewsHeader/__menu/saved-news-header__menu.css');
 @import url('./components/SavedNewsHeader/__button/saved-news-header__button.css');
 @import url('./components/SavedNewsHeader/__icon/saved-news-header__icon.css');
+@import url('./components/Header/__open-mobile-menu/header__open-mobile-menu.css');
+@import url('./components/Header/__icon/header__icon.css');
 /* Styles in SearchForm component */
 @import url('./components/SearchForm/search-form.css');
 @import url('./components/SearchForm/__title/search-form__title.css');
@@ -57,9 +61,12 @@
 /* Styles in Footer component */
 @import url('./components/Footer/footer.css');
 @import url('./components/Footer/__title/footer__title.css');
+@import url('./components/Footer/__nav/footer__nav.css');
 @import url('./components/Footer/__links/footer__links.css');
 @import url('./components/Footer/__item/footer__item.css');
 @import url('./components/Footer/__link/footer__link.css');
+@import url('./components/Footer/__logos/footer__logos.css');
+@import url('./components/Footer/__logo/footer__logo.css');
 /* Styles in Popup with form component */
 @import url('./components/Popup/popup.css');
 @import url('./components/Popup/__container/popup__container.css');

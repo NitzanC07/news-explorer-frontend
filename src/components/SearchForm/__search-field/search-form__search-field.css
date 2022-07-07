@@ -17,3 +17,14 @@
         height: 56px;
     }
 }
+
+@media screen and (max-width: 760px) {
+    .search-form__search-field {
+        width: 95%;
+        height: 128px;
+        margin: 0 auto 32px;
+        flex-direction: column;
+        background-color: transparent;
+        border-radius: 0;
+    }
+}
