@@ -32,7 +32,7 @@ function Header(props) {
 
                 <button 
                     className="header__button" 
-                    onClick={props.handleSignin}
+                    onClick={props.openPopupSignin}
                 >
                     Sign in
                 </button>

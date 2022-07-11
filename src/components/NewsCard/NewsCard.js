@@ -16,7 +16,7 @@ function NewsCard(props) {
     }
 
     function saveIconClick() {
-        props.handleSignin();
+        props.openPopupSignin();
     }
 
 

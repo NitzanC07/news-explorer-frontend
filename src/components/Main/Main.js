@@ -11,7 +11,7 @@ function Main(props) {
         <main className="main">
             <div className='main__background'>
                 <Header 
-                    handleSignin={props.handleSignin}
+                    openPopupSignin={props.openPopupSignin}
                 />
                 <SearchForm />
             </div>
@@ -20,7 +20,7 @@ function Main(props) {
                 page="main"
                 topRightIcon={[unsaveIcon, notLoggedInIcon]}
                 textIcon="Sign in to save articles"
-                handleSignin={props.handleSignin}
+                openPopupSignin={props.openPopupSignin}
             />
 
             <About />
