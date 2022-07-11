@@ -15,7 +15,6 @@
 @import url('./components/Navigation/__link/navigation-menu__link.css');
 /* Styles in Header component */
 @import url('./components/Header/header.css');
-
 @import url('./components/Header/__title/header__title.css');
 @import url('./components/Header/__title-link/header__title-link.css');
 @import url('./components/Header/__menu/header__menu.css');
@@ -28,6 +27,11 @@
 @import url('./components/SavedNewsHeader/__menu/_open/saved-news-header__menu_open.css');
 @import url('./components/SavedNewsHeader/__button/saved-news-header__button.css');
 @import url('./components/SavedNewsHeader/__icon/saved-news-header__icon.css');
+
+@import url('./components/SavedNewsTitle/saved-news-title.css');
+@import url('./components/SavedNewsTitle/__page-name/saved-news-title__page-name.css');
+@import url('./components/SavedNewsTitle/__user-details/saved-news-title__user-details.css');
+@import url('./components/SavedNewsTitle/__keywords/saved-news-title__keywords.css');
 
 @import url('./components/Header/_background/header_background.css');
 @import url('./components/Header/__menu/_open/header__menu_open.css');
@@ -60,6 +64,7 @@
 @import url('./components/NewsCard/__title/news-card__title.css');
 @import url('./components/NewsCard/__text/news-card__text.css');
 @import url('./components/NewsCard/__source/news-card__source.css');
+@import url('./components/NewsCard/__keyword-tag/news-card__keyword-tag.css');
 /* Styles in About component */
 @import url('./components/About/about.css');
 @import url('./components/About/__image/about__image.css');

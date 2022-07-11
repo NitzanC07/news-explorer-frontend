@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import unsaveIcon from '../../images/SavedArticleIcon-NotSaved.svg';
-import notLoggedInIcon from '../../images/SavedArticleIcon-notLoggedIn.svg';
 
 function NewsCard(props) {
 
     const [isShown, setIsShown] = useState(false);
-    const [saveIcon, setSaveIcon] = useState(unsaveIcon);
+    const [saveIcon, setSaveIcon] = useState(props.topRightIcon[0]);
 
     function saveIconEnterMoouse() {
-        setSaveIcon(notLoggedInIcon);
+        setSaveIcon(props.topRightIcon[1]);
         setIsShown(true);
     }
 
     function saveIconLeaveMoouse() {
-        setSaveIcon(unsaveIcon);
+        setSaveIcon(props.topRightIcon[0]);
         setIsShown(false);
     }
 
@@ -26,6 +24,7 @@ function NewsCard(props) {
         <div className="news-card">
             <img className="news-card__image" src={props.image} alt="card's pic" />
             <div className="news-card__save-button">
+                
                 <button 
                     className="news-card__save-button-icon"
                     type="button"
@@ -37,11 +36,12 @@ function NewsCard(props) {
                 </button>
                 {isShown && (
                     <span className="news-card__save-button-signin">
-                        Sign in to save articles
+                        {props.textIcon}
                     </span>
                 )}
+                
             </div>
-            
+            {props.page === "saved-articles" ? <div className="news-card__keyword-tag">Keyword</div> : ""}
             <p className="news-card__time">{props.time}</p>
             <h2 className="news-card__title">{props.title}</h2>
             <p className="news-card__text">{props.text}</p>

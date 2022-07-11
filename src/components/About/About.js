@@ -3,7 +3,7 @@ import profilePicture from '../../images/nitzan.jpg';
 function About(props) {
 
     return(
-        <div className="about">
+        <section className="about">
             <img className="about__image" src={profilePicture} alt="Author profile pic"/>
 
             <div className="about__description">
@@ -15,7 +15,7 @@ function About(props) {
                     I added some important tools for my tool box, like HTML, CSS, JS, React, MongoDB and more. I really love to develop technology tools, and I have some ideas for personal projects.
                 </p>
             </div>
-        </div>
+        </section>
     )
 }
 

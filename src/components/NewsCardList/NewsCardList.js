@@ -7,11 +7,14 @@ function NewsCardList(props) {
 
     return(
 
-        <div className="news-card-list">
+        <section className="news-card-list">
             <h2 className="news-card-list__title">Search results</h2>
             <div className="news-card-list__cards">
                 <div className="news-card-list__cards-container">
                     <NewsCard
+                        page={props.page}
+                        topRightIcon={props.topRightIcon}
+                        textIcon={props.textIcon}
                         image={image01}
                         title="Everyone Needs a Special 'Sit Spot' in Nature"
                         time="November 4, 2020"
@@ -20,6 +23,9 @@ function NewsCardList(props) {
                         handleSignin={props.handleSignin}
                     />
                     <NewsCard
+                        page={props.page}
+                        topRightIcon={props.topRightIcon}
+                        textIcon={props.textIcon}
                         image={image02}
                         title="Nature makes you better"
                         time="February 19, 2019"
@@ -28,6 +34,9 @@ function NewsCardList(props) {
                         handleSignin={props.handleSignin}
                     />
                     <NewsCard
+                        page={props.page}
+                        topRightIcon={props.topRightIcon}
+                        textIcon={props.textIcon}
                         image={image03}
                         title="Grand Teton Renews Historic Crest Trail"
                         time="October 19, 2020"
@@ -36,11 +45,16 @@ function NewsCardList(props) {
                         handleSignin={props.handleSignin}
                     />
                 </div>
-                <button className="news-card-list__button">Show more</button>
+                {
+                    props.page === "main" ?
+                    <button className="news-card-list__button">Show more</button> :
+                    ""
+                }
+                
             </div>
             
 
-        </div>
+        </section>
     )
 }
 
