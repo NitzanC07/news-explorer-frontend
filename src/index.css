@@ -42,6 +42,7 @@
 @import url('./components/SavedNewsHeader/__menu-icon/saved-news-header__menu-icon.css');
 @import url('./components/SavedNewsHeader/_background/saved-news-header_background.css');
 /* Styles in SearchForm component */
+@import url('./components/SearchForm/__content/search-form__content.css');
 @import url('./components/SearchForm/search-form.css');
 @import url('./components/SearchForm/__title/search-form__title.css');
 @import url('./components/SearchForm/__text/search-form__text.css');

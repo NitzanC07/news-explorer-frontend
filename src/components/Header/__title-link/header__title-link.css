@@ -1,10 +1,15 @@
 .header__title-link {
-    font-family: 'Roboto_slab', sans-serif, 'Franklin Gothic Medium', 'Arial Narrow';
+    font-family: 'Roboto_slab-bold', sans-serif, 'Franklin Gothic Medium', 'Arial Narrow';
     font-style: normal;
-    font-weight: 700;
     font-size: 20px;
     line-height: 24px;
     color: #fff;
     cursor: url('../../../images/cursor-lapka.svg'), pointer;
     text-decoration: none;
+}
+
+@media screen and (max-width: 760px) {
+    .header__title-link {
+        font-size: 16px;
+    }
 }

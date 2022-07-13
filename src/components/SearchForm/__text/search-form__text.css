@@ -5,7 +5,13 @@
     font-size: 18px;
     line-height: 24px;
     color: #fff;
-    margin: 32px auto 0;
+    margin: 32px 0 0;
+}
+
+@media screen and (max-width: 1450px) {
+    .search-form__text {
+        margin-top: 16px;
+    }
 }
 
 @media screen and (max-width: 760px) {
