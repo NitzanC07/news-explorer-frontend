@@ -5,7 +5,7 @@
 @media screen and (max-width: 1450px) {
     .footer__nav {
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         margin-bottom: 0px;
         
     }

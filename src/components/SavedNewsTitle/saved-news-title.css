@@ -1,3 +1,15 @@
 .saved-news-title {
     margin: 40px 104px 56px;
 }
+
+@media screen and (max-width: 1450px) {
+    .saved-news-title {
+        margin: 24px 40px 32px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .saved-news-title {
+        margin: 8px 16px 32px;
+    }
+}

@@ -13,7 +13,8 @@
 
 @media screen and (max-width: 1450px) {
     .footer__title {
-        margin-left: 40px;
+        margin-left: 0;
+        width: 300px;
     }
 }
 

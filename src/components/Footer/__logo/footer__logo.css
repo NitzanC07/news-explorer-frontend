@@ -4,3 +4,10 @@
     color: #1A1B22;
     text-decoration: none;
 }
+
+@media screen and (max-width: 760px) {
+    .footer__logo {
+        margin-left: 25px ;
+        
+    }
+}

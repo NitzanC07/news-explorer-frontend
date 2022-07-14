@@ -1,5 +1,5 @@
 .news-card {
-    width: 400px;
+    max-width: 400px;
     max-height: 576px;
     margin: auto;
     background-color: #fff;
@@ -16,5 +16,13 @@
     .news-card {
         width: 100%;
         max-width: 400px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .news-card {
+        width: 100%;
+        max-width: 288px;
+        max-height: 440px;
     }
 }

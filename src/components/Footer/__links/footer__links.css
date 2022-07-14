@@ -1,7 +1,7 @@
 .footer__links {
     color: #000;
     list-style: none;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     margin: 0 42px 0 0;
     padding: 0;
     display: flex;

@@ -7,3 +7,10 @@
     line-height: 24px;
     color: #B6BCBF;
 }
+
+@media screen and (max-width: 760px) {
+    .news-card__time {
+        height: fit-content;
+        margin: 16px 16px 10px;
+    }
+}

@@ -1,9 +1,9 @@
 .popup__link {
-    /* font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 22px; */
+    font-size: 14px;
+    line-height: 17px;
     color: #2F71E5;   
     text-decoration: none;
     cursor: url('../../../images/cursor-lapka.svg'), pointer;

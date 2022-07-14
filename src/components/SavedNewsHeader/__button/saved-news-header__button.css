@@ -17,6 +17,12 @@
     cursor: url(../../../images/cursor-lapka.svg), pointer;
 }
 
+@media screen and (max-width: 1450px) {
+    .saved-news-header__button {
+        margin-right: 40px;
+    }
+}
+
 @media screen and (max-width: 760px) {
     .saved-news-header__button {
         margin: 0 auto 24px;
