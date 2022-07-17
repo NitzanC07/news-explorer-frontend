@@ -12,6 +12,7 @@ function Main(props) {
             <div className='main__background'>
                 <Header 
                     openPopupSignin={props.openPopupSignin}
+                    page="home"
                 />
                 <SearchForm />
             </div>

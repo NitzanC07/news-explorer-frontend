@@ -8,7 +8,11 @@ function NewsCardList(props) {
     return(
 
         <section className="news-card-list">
-            <h2 className="news-card-list__title">Search results</h2>
+            {
+                props.page === "main" ? 
+                <h2 className="news-card-list__title">Search results</h2> :
+                ""
+            }
             <div className="news-card-list__cards">
                 <div className="news-card-list__cards-container">
                     <NewsCard

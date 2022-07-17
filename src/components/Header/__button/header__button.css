@@ -18,9 +18,11 @@
     cursor: url(../../../images/cursor-lapka.svg), pointer;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .header__button {
-        margin-right: 40px;
+        width: 152px;
+        height: 40px;
+        margin: 12px 40px 12px 0;
     }
 }
 
@@ -28,5 +30,6 @@
     .header__button {
         width: 90%;
         margin: 0 16px 24px ;
+        justify-content: space-around;
     }
 }

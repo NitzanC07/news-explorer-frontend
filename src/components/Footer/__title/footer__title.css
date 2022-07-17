@@ -14,12 +14,14 @@
 @media screen and (max-width: 1450px) {
     .footer__title {
         margin-left: 0;
-        width: 300px;
+        width: fit-content;
     }
 }
 
 @media screen and (max-width: 760px) {
     .footer__title {
-        margin: 0 auto 22px;
+        margin: 0 0 22px;
+        font-size: 15px;
+        line-height: 22px;
     }
 }

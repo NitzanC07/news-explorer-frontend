@@ -1,5 +1,6 @@
 import NewsCardList from "../NewsCardList/NewsCardList";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import Header from "../Header/Header";
 import SavedNewsTitle from "../SavedNewsTitle/SavedNewsTitle";
 import trashIcon from "../../images/trash.svg";
 import trashIconActive from "../../images/trash-active.svg";
@@ -8,8 +9,9 @@ function SavedNews(props) {
 
     return(
         <section className="saved-news">
-            <SavedNewsHeader  
+            <Header  
                 handleSignout={props.handleSignout}
+                page="saved-articles"
             />
 
             <SavedNewsTitle />

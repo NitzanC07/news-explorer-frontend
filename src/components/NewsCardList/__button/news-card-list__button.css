@@ -21,7 +21,7 @@
     background-color: #E8E8E8;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .news-card-list__button {
         width: 240px;
         height: 56px;
