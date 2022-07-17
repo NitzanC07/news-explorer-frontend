@@ -1,10 +1,9 @@
 .footer__link {
     cursor: url(../../../images/cursor-lapka.svg), pointer;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    
     text-align: center;
     color: #1A1B22;
     text-decoration: none;

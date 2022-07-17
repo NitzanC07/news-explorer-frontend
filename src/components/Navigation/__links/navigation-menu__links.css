@@ -1,7 +1,7 @@
 .navigation-menu__links {
     color: #fff;
     list-style: none;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     margin: 0 64px;
     padding: 0;
     display: flex;

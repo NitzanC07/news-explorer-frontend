@@ -3,10 +3,6 @@
     padding: 0;
     display: flex;
     justify-content: center;
-
-
-    /* background-color: #ddd; */
-    /* border: 2px solid rgba(255,0,0,0.5); */
 }
 
 @media screen and (max-width: 1450px) {

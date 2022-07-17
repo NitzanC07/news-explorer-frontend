@@ -1,6 +1,6 @@
 .navigation-menu__link {
     list-style: none;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     text-decoration: none;
     cursor: url(../../../images/cursor-lapka.svg), pointer;
 }

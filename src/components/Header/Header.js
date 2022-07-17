@@ -37,7 +37,13 @@ function Header(props) {
     const isMobile = windowDimension <= 760;
 
     return(
-        <header className={ `header ${isMenuNavOpen ? 'header_background' : ''}` }>
+        <header 
+            className={ `header ${isMenuNavOpen ? 'header_background' : ''}` }
+            style={props.page === "home" ? 
+                {borderBottom: '1px solid rgba(255, 255, 255, 0.2)'} :
+                {borderBottom: '1px solid rgba(0, 0, 0, 0.2)'} 
+            }    
+        >
             <h1 className='header__title'>
                 <Link 
                     className='header__title-link' 
@@ -66,7 +72,7 @@ function Header(props) {
                         className="header__button" 
                         onClick={ props.openPopupSignin }
                         style={ props.page === "home"  || isMenuNavOpen === true ? 
-                            {color: '#fff', border: '1px solid #fff' } : 
+                            {color: '#fff', border: '1px solid #fff', padding: '0' } : 
                             {color: '#1A1B22', border: '1px solid #1A1B22', padding: '0 0 0 19px'} }
                         
                     >

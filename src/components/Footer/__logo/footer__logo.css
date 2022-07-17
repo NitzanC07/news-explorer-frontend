@@ -1,8 +1,6 @@
 .footer__logo {
     cursor: url(../../../images/cursor-lapka.svg), pointer;
-    text-align: center;
     color: #1A1B22;
-    text-decoration: none;
 }
 
 @media screen and (max-width: 760px) {

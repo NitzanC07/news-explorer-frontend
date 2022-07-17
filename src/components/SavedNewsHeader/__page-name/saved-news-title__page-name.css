@@ -1,4 +1,4 @@
-.saved-news-title__page-name {
+.saved-news-header__page-name {
     margin: 0 0 28px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 1439px) {
-    .saved-news-title__page-name {
+    .saved-news-header__page-name {
         font-size: 14px;
         line-height: 24px;
         margin-bottom: 16px;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (max-width: 760px) {
-    .saved-news-title__page-name {
+    .saved-news-header__page-name {
         font-size: 12px;
         line-height: 24px;
     }
