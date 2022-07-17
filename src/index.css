@@ -91,6 +91,7 @@
 @import url('./components/Popup/__field/popup__field.css');
 @import url('./components/Popup/__input/popup__input.css');
 @import url('./components/Popup/__submit-button/popup__submit-button.css');
+@import url('./components/Popup/__submit-button/_disabled/popup__submit-button_disabled.css');
 @import url('./components/Popup/__text/popup__text.css');
 @import url('./components/Popup/__info/popup__info.css');
 @import url('./components/Popup/__link/popup__link.css');

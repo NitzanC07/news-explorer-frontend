@@ -7,6 +7,8 @@ function PopupSignin(props) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const isInputsValid = email && password ? true : false;
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -19,6 +21,7 @@ function PopupSignin(props) {
             onClose={props.onClose}
             onSubmit={handleSubmit}
             handleDifferentPopup={props.handleDifferentPopup}
+            isInputsValid={isInputsValid}
             name="signin"
             title="Sign in"
             buttonText="Sign in"
