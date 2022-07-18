@@ -12,7 +12,8 @@
 
 @media screen and (max-width: 760px) {
     .navigation-menu__item {
-        margin: 22px 0 0;
+        margin: 23px 0;
         padding: 0;
+        justify-content: center;
     }
 }
