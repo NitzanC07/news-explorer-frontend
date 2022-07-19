@@ -6,7 +6,7 @@
     border-radius: 80px;
     cursor: url('../../../images/cursor-lapka.svg'), pointer;
 
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -21,7 +21,7 @@
     background-color: #E8E8E8;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .news-card-list__button {
         width: 240px;
         height: 56px;

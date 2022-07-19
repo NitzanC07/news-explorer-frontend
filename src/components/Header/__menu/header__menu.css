@@ -1,9 +1,7 @@
 .header__menu {
     display: flex;
     flex-direction: row;
-    margin: 0;
     padding: 0;
-    color: #fff;
 }
 
 @media screen and (max-width: 760px) {
@@ -15,6 +13,6 @@
         background-color: #1A1B22;
         width: 100%;
         position: absolute;
-           top: 81px;
+           top: 57px;
     }
 }

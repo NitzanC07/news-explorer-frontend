@@ -1,0 +1,9 @@
+.search-form__content {
+    max-width: 608px;
+}
+
+@media screen and (max-width: 1450px) {
+    .search-form__content {
+        max-width: 452px;
+    }
+}

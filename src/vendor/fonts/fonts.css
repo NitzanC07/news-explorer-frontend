@@ -4,11 +4,31 @@
 }
 
 @font-face {
+    font-family: 'Roboto-500';
+    src: url('../fonts/final-project_fonts_latin/roboto-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto-bold';
+    src: url('../fonts/final-project_fonts_latin/roboto-900.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'Roboto_slab';
     src: url('./final-project_fonts_latin/roboto-slab-400-regular.woff2') format('woff2');
 }
 
 @font-face {
+    font-family: 'Roboto_slab-bold';
+    src: url('./final-project_fonts_latin/roboto-slab-700.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'Inter';
     src: url('./final-project_fonts_latin/inter-400-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter-500';
+    src: url('./final-project_fonts_latin/inter-500.woff2') format('woff2');
 }

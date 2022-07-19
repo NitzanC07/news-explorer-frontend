@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Main from '../Main/Main';
 import SavedNews from '../SavedNews/SavedNews';
@@ -6,8 +6,27 @@ import Footer from '../Footer/Footer';
 import PopupSignin from '../PopupSignin/PopupSignin';
 import PopupSignup from '../PopupSignup/PopupSignup';
 import PopupRegisterSuccessfully from '../PopupRegisterSuccessfully/PopupRegisterSuccessfully';
+import * as auth from '../../utils/auth';
 
 function App() {
+
+  const [currentUser , setCurrentUser ] = useState({});
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if(jwt) {
+        auth.getContent(jwt)
+        .then((data) => {
+            if(data) {
+                setLoggedIn(true);
+            }
+        }, )
+        .catch((err) => {
+            console.log(`Something went wrong in getContent function: ${err}`);
+        })
+    }
+  }, [isLoggedIn]);
 
   const [isPopupSigninOpen, setPopupSigninOpen] = useState(false);
   const [isPopupSignupOpen, setPopupSignupOpen] = useState(false);
@@ -19,7 +38,7 @@ function App() {
     setPopupRegisterSuccessfully(false);
   }
 
-  function handleSignin() {
+  function openPopupSignin() {
     setPopupSigninOpen(true);
   }
 
@@ -27,13 +46,29 @@ function App() {
     console.log('user sign out');
   }
 
-  function handleSignup() {
+  function openPopupSignup() {
     setPopupSignupOpen(true);
   }
 
   function handleRegisterSuccessfully() {
     setPopupRegisterSuccessfully(true);
   }
+
+  function handleLoginSubmit(email, password) {
+    auth.login(email, password)
+    .then((res) => {
+        console.log(('response login:', res));
+        if(res) {
+            localStorage.setItem("jwt", res);
+            setCurrentUser(currentUser);
+            setLoggedIn(true);
+            setPopupRegisterSuccessfully(true);
+        }
+    })
+    .catch((err) => {
+        console.log(`Something went wrong: ${err}`);
+    });
+}
 
   return (
     <div className="app">
@@ -49,8 +84,8 @@ function App() {
 
           <Route exact path='/' element={
             <Main 
-              handleSignin={handleSignin}
-              handleSignup={handleSignup}
+              openPopupSignin={openPopupSignin}
+              openPopupSignup={openPopupSignup}
               handleRegisterSuccessfully={handleRegisterSuccessfully}
             />} 
           />
@@ -61,20 +96,21 @@ function App() {
 
         <PopupSignin 
           isOpen={isPopupSigninOpen}
+          onSubmit={handleLoginSubmit}
           onClose={closeAllPopups}
-          handleDifferentPopup={handleSignup}
+          handleDifferentPopup={openPopupSignup}
         />
 
         <PopupSignup
           isOpen={isPopupSignupOpen}
           onClose={closeAllPopups}
-          handleDifferentPopup={handleSignin}
+          handleDifferentPopup={openPopupSignin}
         />
         
         <PopupRegisterSuccessfully 
           isOpen={isPopupRegisterSuccessfully}
           onClose={closeAllPopups}
-          handleSignin={handleSignin}
+          openPopupSignin={openPopupSignin}
           title="Registration successfully completed!"
         />
 

@@ -1,19 +1,19 @@
 .news-card-list__cards-container {
     margin: 0 0 64px 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 33%);
     gap: 16px;
     width: 100%;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .news-card-list__cards-container {
         gap: 8px;
         margin-bottom: 32px;
     }
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 760px) {
     .news-card-list__cards-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;

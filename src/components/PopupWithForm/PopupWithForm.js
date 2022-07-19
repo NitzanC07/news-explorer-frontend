@@ -1,5 +1,5 @@
 import Popup from '../Popup/Popup';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function PopupWithForm({name, isOpen, onClose, ...props}) {
 
@@ -12,10 +12,18 @@ function PopupWithForm({name, isOpen, onClose, ...props}) {
 
     return(
         <Popup isOpen={isOpen} name={name} onClose={onClose}>
-            <form className="popup__form">
+            <form 
+                className="popup__form"
+                onSubmit={props.onSubmit}>
                 <h2 className="popup__title">{props.title}</h2>
                 {props.children}
-                <button className="popup__submit-button button">{props.buttonText}</button>
+                <button 
+                    className={`popup__submit-button${props.isInputsValid ? '' : '_disabled'}`}
+                    type='submit'
+                    disabled={!props.isInputsValid}
+                >
+                    {props.buttonText}
+                </button>
                 <p className="popup__text">or 
                     <a className="popup__link" onClick={openDifferentPopup}> {props.text} </a>
                 </p>

@@ -1,14 +1,24 @@
 .footer__logos {
     color: #000;
     list-style: none;
-    margin: 0 106px 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
 }
 
+@media screen and (max-width: 1450px) {
+    .footer__logos {
+        margin: 0 1px 0 0;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
 @media screen and (max-width: 760px) {
     .footer__logos {
-        margin-right: 16px;
+        margin: 0 2px 0 0;
+        flex-direction: row;
+        align-items: flex-end;
     }
 }

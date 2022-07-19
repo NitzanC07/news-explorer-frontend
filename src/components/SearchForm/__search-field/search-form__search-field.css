@@ -15,6 +15,7 @@
     .search-form__search-field {
         width: 448px;
         height: 56px;
+        margin: 48px auto;
     }
 }
 

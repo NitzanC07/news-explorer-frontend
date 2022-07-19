@@ -5,7 +5,7 @@
     margin: 0 56px 0 0;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .about__image {
         width: 232px;
         height: 232px;

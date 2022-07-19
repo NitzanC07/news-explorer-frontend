@@ -5,13 +5,14 @@
     font-size: 60px;
     line-height: 64px;
     color: #fff;
-    margin: 80px auto 0;
+    margin: 80px 0 0;
 }
 
 @media screen and (max-width: 1450px) {
     .search-form__title {
         font-size: 36px;
         line-height: 40px;
+        margin-top: 38px;
     }
 }
 

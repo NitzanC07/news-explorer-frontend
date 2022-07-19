@@ -5,8 +5,16 @@
     align-items: center;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1439px) {
     .header__title {
-        margin-left: 40px;
+        margin: 23px 0 18px 40px;
+
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .header__title {
+        margin: 16px 0 16px 16px;
+
     }
 }

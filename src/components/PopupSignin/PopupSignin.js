@@ -1,14 +1,27 @@
+import { useState } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 
 function PopupSignin(props) {
 
     // console.log(props);
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const isInputsValid = email && password ? true : false;
+    
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        props.onSubmit(email, password)
+    }
+
     return(
         <PopupWithForm 
             isOpen={props.isOpen ? 'popup_open' : ''}
             onClose={props.onClose}
+            onSubmit={handleSubmit}
             handleDifferentPopup={props.handleDifferentPopup}
+            isInputsValid={isInputsValid}
             name="signin"
             title="Sign in"
             buttonText="Sign in"
@@ -23,8 +36,8 @@ function PopupSignin(props) {
                     placeholder="Enter Email" 
                     minLength="2" 
                     maxLength="40" 
-                    // value={name || ''}
-                    // onChange={handleChangeNameInput}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required 
                 />
                 <span className="input-email-error"></span>
@@ -38,8 +51,8 @@ function PopupSignin(props) {
                     placeholder="Enter password" 
                     minLength="2" 
                     maxLength="200" 
-                    // value={description || ''}
-                    // onChange={handleChangeAboutInput}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required 
                 />
                 <span className="input-password-error"></span>

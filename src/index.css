@@ -8,7 +8,7 @@
 @import url('./components/Main/main.css');
 @import url('./components/Main/__background/main__background.css');
 /* Styles in Navigation menu */
-@import url('./components/Navigation/navigation.css');
+@import url('./components/Navigation/navigation-menu.css');
 @import url('./components/Navigation/__links/navigation-menu__links.css');
 @import url('./components/Navigation/__item/navigation__item.css');
 @import url('./components/Navigation/__item/_active/navigation__item_active.css');
@@ -19,29 +19,17 @@
 @import url('./components/Header/__title-link/header__title-link.css');
 @import url('./components/Header/__menu/header__menu.css');
 @import url('./components/Header/__button/header__button.css');
-
-@import url('./components/SavedNewsHeader/saved-news-header.css');
-@import url('./components/SavedNewsHeader/__title/saved-news-header__title.css');
-@import url('./components/SavedNewsHeader/__title-link/saved-news-header__title-link.css');
-@import url('./components/SavedNewsHeader/__menu/saved-news-header__menu.css');
-@import url('./components/SavedNewsHeader/__menu/_open/saved-news-header__menu_open.css');
-@import url('./components/SavedNewsHeader/__button/saved-news-header__button.css');
-@import url('./components/SavedNewsHeader/__icon/saved-news-header__icon.css');
-
-@import url('./components/SavedNewsTitle/saved-news-title.css');
-@import url('./components/SavedNewsTitle/__page-name/saved-news-title__page-name.css');
-@import url('./components/SavedNewsTitle/__user-details/saved-news-title__user-details.css');
-@import url('./components/SavedNewsTitle/__keywords/saved-news-title__keywords.css');
-
 @import url('./components/Header/_background/header_background.css');
 @import url('./components/Header/__menu/_open/header__menu_open.css');
 @import url('./components/Header/__open-mobile-menu/header__open-mobile-menu.css');
 @import url('./components/Header/__icon/header__icon.css');
-
-@import url('./components/SavedNewsHeader/__open-mobile-menu/saved-news-header__open-mobile-menu.css');
-@import url('./components/SavedNewsHeader/__menu-icon/saved-news-header__menu-icon.css');
-@import url('./components/SavedNewsHeader/_background/saved-news-header_background.css');
+/* Styles in Saved header component */
+@import url('./components/SavedNewsHeader/saved-news-header.css');
+@import url('./components/SavedNewsHeader/__page-name/saved-news-title__page-name.css');
+@import url('./components/SavedNewsHeader/__user-details/saved-news-title__user-details.css');
+@import url('./components/SavedNewsHeader/__keywords/saved-news-title__keywords.css');
 /* Styles in SearchForm component */
+@import url('./components/SearchForm/__content/search-form__content.css');
 @import url('./components/SearchForm/search-form.css');
 @import url('./components/SearchForm/__title/search-form__title.css');
 @import url('./components/SearchForm/__text/search-form__text.css');
@@ -90,6 +78,7 @@
 @import url('./components/Popup/__field/popup__field.css');
 @import url('./components/Popup/__input/popup__input.css');
 @import url('./components/Popup/__submit-button/popup__submit-button.css');
+@import url('./components/Popup/__submit-button/_disabled/popup__submit-button_disabled.css');
 @import url('./components/Popup/__text/popup__text.css');
 @import url('./components/Popup/__info/popup__info.css');
 @import url('./components/Popup/__link/popup__link.css');
