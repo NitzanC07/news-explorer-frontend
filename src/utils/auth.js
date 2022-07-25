@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.nitzan-fp.students.nomoredomainssbs.ru";
 
 export const checkResponse = (res) => {
   console.log(`checkResponse: ${res}`);
@@ -31,7 +31,7 @@ export const register = ({email, password}) => {
 
 export const login = (email, password) => {
   // console.log('auth-login:', email, password);
-  return fetch(`${BASE_URL}`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
       'Accept': "application/json",
@@ -46,8 +46,8 @@ export const login = (email, password) => {
 };
 
 export const getContent = (jwt) => {
-  // console.log(jwt);
-  return fetch(`${BASE_URL}`, {
+  console.log(`in getContent function: ${jwt}`);
+  return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
