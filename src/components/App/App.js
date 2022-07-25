@@ -19,10 +19,9 @@ function App() {
         console.log(('response login:', res));
         if(res) {
             localStorage.setItem("jwt", res);
-            console.log(localStorage);
             setCurrentUser(currentUser);
             setLoggedIn(true);
-            setPopupRegisterSuccessfully(true);
+            closeAllPopups();
         }
     })
     .catch((err) => {
