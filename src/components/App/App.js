@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoutes from '../ProtectedRoutes/ProtectedRoutes';
 import Main from '../Main/Main';
-import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 import PopupSignin from '../PopupSignin/PopupSignin';
 import PopupSignup from '../PopupSignup/PopupSignup';
@@ -13,18 +13,35 @@ function App() {
   const [currentUser , setCurrentUser ] = useState({});
   const [isLoggedIn, setLoggedIn] = useState(false);
   
+  function handleLoginSubmit(email, password) {
+    auth.login(email, password)
+    .then((res) => {
+        console.log(('response login:', res));
+        if(res) {
+            localStorage.setItem("jwt", res);
+            console.log(localStorage);
+            setCurrentUser(currentUser);
+            setLoggedIn(true);
+            setPopupRegisterSuccessfully(true);
+        }
+    })
+    .catch((err) => {
+        console.log(`Something went wrong: ${err}`);
+    });
+  }
+
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if(jwt) {
-        auth.getContent(jwt)
-        .then((data) => {
-            if(data) {
-                setLoggedIn(true);
-            }
-        }, )
-        .catch((err) => {
-            console.log(`Something went wrong in getContent function: ${err}`);
-        })
+      auth.getContent(jwt)
+      .then((data) => {
+          if(data) {
+              setLoggedIn(true);
+          }
+      }, )
+      .catch((err) => {
+          console.log(`Something went wrong in getContent function: ${err}`);
+      })
     }
   }, [isLoggedIn]);
 
@@ -54,32 +71,19 @@ function App() {
     setPopupRegisterSuccessfully(true);
   }
 
-  function handleLoginSubmit(email, password) {
-    auth.login(email, password)
-    .then((res) => {
-        console.log(('response login:', res));
-        if(res) {
-            localStorage.setItem("jwt", res);
-            setCurrentUser(currentUser);
-            setLoggedIn(true);
-            setPopupRegisterSuccessfully(true);
-        }
-    })
-    .catch((err) => {
-        console.log(`Something went wrong: ${err}`);
-    });
-}
-
   return (
     <div className="app">
       <div className="app__page">
 
         <Routes>
 
-          <Route path='/saved-news' element={
-            <SavedNews 
-              handleSignout={handleSignout}
-            />} 
+          <Route 
+            path='/saved-news' 
+            element={
+              <ProtectedRoutes 
+                handleSignout={handleSignout}
+                loggedIn={isLoggedIn}
+              />} 
           />
 
           <Route exact path='/' element={
