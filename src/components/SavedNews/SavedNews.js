@@ -3,13 +3,19 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Header from "../Header/Header";
 import trashIcon from "../../images/trash.svg";
 import trashIconActive from "../../images/trash-active.svg";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/currentUserContext";
 
 function SavedNews(props) {
+
+    const currentUser = useContext(CurrentUserContext);
 
     return(
         <section className="saved-news">
             <Header  
-                handleSignout={props.handleSignout}
+                currentUser={currentUser}
+                loggedIn={props.loggedIn}
+                handleSignOut={props.handleSignOut}
                 page="saved-articles"
             />
 

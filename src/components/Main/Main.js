@@ -7,12 +7,16 @@ import notLoggedInIcon from '../../images/SavedArticleIcon-notLoggedIn.svg';
 
 function Main(props) {
 
+    // console.log(`Main props: ${props.loggedIn}`);
+
     return(
         <main className="main">
             <div className='main__background'>
                 <Header 
-                    openPopupSignin={props.openPopupSignin}
                     page="home"
+                    loggedIn={props.loggedIn}
+                    handleSignOut={props.handleSignOut}
+                    openPopupSignin={props.openPopupSignin}
                 />
                 <SearchForm />
             </div>

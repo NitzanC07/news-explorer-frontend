@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from '../ProtectedRoutes/ProtectedRoutes';
+import { CurrentUserContext } from '../../contexts/currentUserContext';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import PopupSignin from '../PopupSignin/PopupSignin';
@@ -16,19 +17,32 @@ function App() {
   function handleLoginSubmit(email, password) {
     auth.login(email, password)
     .then((res) => {
-        console.log(('response login:', res));
         if(res) {
             localStorage.setItem("jwt", res);
-            console.log(localStorage);
-            setCurrentUser(currentUser);
             setLoggedIn(true);
-            setPopupRegisterSuccessfully(true);
+            closeAllPopups();
         }
     })
     .catch((err) => {
         console.log(`Something went wrong: ${err}`);
     });
   }
+
+  function handleRegisterSubmit({email, password, username}) {
+    auth.register(email, password, username)
+    .then((res) => {
+      closeAllPopups();
+      setPopupRegisterSuccessfully(true);
+    })
+    .catch((err) => {
+        console.log(`Something went wrong: ${err}`);
+    });
+  }
+
+  function handleSignOut() {
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+}
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -37,6 +51,11 @@ function App() {
       .then((data) => {
           if(data) {
               setLoggedIn(true);
+              setCurrentUser({ 
+                _id: data._id, 
+                name: data.username, 
+                email: data.email 
+              });
           }
       }, )
       .catch((err) => {
@@ -59,10 +78,6 @@ function App() {
     setPopupSigninOpen(true);
   }
 
-  function handleSignout() {
-    console.log('user sign out');
-  }
-
   function openPopupSignup() {
     setPopupSignupOpen(true);
   }
@@ -72,57 +87,62 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="app__page">
+    <CurrentUserContext.Provider value={currentUser}>
 
-        <Routes>
+      <div className="app">
+        <div className="app__page">
 
-          <Route 
-            path='/saved-news' 
-            element={
-              <ProtectedRoutes 
-                handleSignout={handleSignout}
+          <Routes>
+
+            <Route 
+              path='/saved-news' 
+              element={
+                <ProtectedRoutes 
+                  currentUser={currentUser}
+                  handleSignOut={handleSignOut}
+                  loggedIn={isLoggedIn}
+                />} 
+            />
+
+            <Route exact path='/' element={
+              <Main 
+                currentUser={currentUser}
                 loggedIn={isLoggedIn}
+                handleSignOut={handleSignOut}
+                openPopupSignin={openPopupSignin}
+                openPopupSignup={openPopupSignup}
+                handleRegisterSuccessfully={handleRegisterSuccessfully}
               />} 
+            />
+
+          </Routes>
+
+          <Footer />
+
+          <PopupSignin 
+            isOpen={isPopupSigninOpen}
+            onSubmit={handleLoginSubmit}
+            onClose={closeAllPopups}
+            handleDifferentPopup={openPopupSignup}
           />
 
-          <Route exact path='/' element={
-            <Main 
-              openPopupSignin={openPopupSignin}
-              openPopupSignup={openPopupSignup}
-              handleRegisterSuccessfully={handleRegisterSuccessfully}
-            />} 
+          <PopupSignup
+            isOpen={isPopupSignupOpen}
+            onSubmit={handleRegisterSubmit}
+            onClose={closeAllPopups}
+            handleDifferentPopup={openPopupSignin}
+          />
+          
+          <PopupRegisterSuccessfully 
+            isOpen={isPopupRegisterSuccessfully}
+            onClose={closeAllPopups}
+            openPopupSignin={openPopupSignin}
+            title="Registration successfully completed!"
           />
 
-        </Routes>
-
-        <Footer />
-
-        <PopupSignin 
-          isOpen={isPopupSigninOpen}
-          onSubmit={handleLoginSubmit}
-          onClose={closeAllPopups}
-          handleDifferentPopup={openPopupSignup}
-        />
-
-        <PopupSignup
-          isOpen={isPopupSignupOpen}
-          onClose={closeAllPopups}
-          handleDifferentPopup={openPopupSignin}
-        />
-        
-        <PopupRegisterSuccessfully 
-          isOpen={isPopupRegisterSuccessfully}
-          onClose={closeAllPopups}
-          openPopupSignin={openPopupSignin}
-          title="Registration successfully completed!"
-        />
-
+        </div>
       </div>
-
-      
-
-    </div>
+    </CurrentUserContext.Provider>
   );
 }
 

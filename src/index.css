@@ -23,6 +23,7 @@
 @import url('./components/Header/__menu/_open/header__menu_open.css');
 @import url('./components/Header/__open-mobile-menu/header__open-mobile-menu.css');
 @import url('./components/Header/__icon/header__icon.css');
+@import url('./components/Header/__logout-icon/header__logout-icon.css');
 /* Styles in Saved header component */
 @import url('./components/SavedNewsHeader/saved-news-header.css');
 @import url('./components/SavedNewsHeader/__page-name/saved-news-title__page-name.css');

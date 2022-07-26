@@ -7,7 +7,8 @@ function ProtectedRoute({ children, loggedIn, ...props }) {
   return (
     loggedIn ? 
       <SavedNews 
-        handleSignout={props.handleSignout}
+        loggedIn={loggedIn}
+        handleSignOut={props.handleSignOut}
       /> 
       :
       <Navigate to='/' />

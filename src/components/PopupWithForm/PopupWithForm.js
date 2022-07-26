@@ -1,5 +1,4 @@
 import Popup from '../Popup/Popup';
-import { Link } from 'react-router-dom';
 
 function PopupWithForm({name, isOpen, onClose, ...props}) {
 
@@ -25,7 +24,12 @@ function PopupWithForm({name, isOpen, onClose, ...props}) {
                     {props.buttonText}
                 </button>
                 <p className="popup__text">or 
-                    <a className="popup__link" onClick={openDifferentPopup}> {props.text} </a>
+                    <button 
+                        className="popup__link" 
+                        onClick={openDifferentPopup}
+                    >
+                        {props.text}
+                    </button>
                 </p>
             </form>
         </Popup>
