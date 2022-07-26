@@ -1,7 +1,7 @@
 export const BASE_URL = "https://api.nitzan-fp.students.nomoredomainssbs.ru";
 
 export const checkResponse = (res) => {
-  console.log(`checkResponse: ${res}`);
+  // console.log(`checkResponse: ${res}`);
   if(res.ok) {
     return res.json();
   } else {
@@ -9,8 +9,8 @@ export const checkResponse = (res) => {
   }
 }
 
-export const register = ({email, password}) => {
-  // console.log('auth-register:', email, password);
+export const register = (email, password, username) => {
+  // console.log('auth-register:', email, password, username);
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
@@ -18,8 +18,9 @@ export const register = ({email, password}) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ 
-      "password": password,
-      "email": email
+      password: password,
+      email: email, 
+      username: username
     }),
   })
   .then(checkResponse)
@@ -46,7 +47,7 @@ export const login = (email, password) => {
 };
 
 export const getContent = (jwt) => {
-  console.log(`in getContent function: ${jwt}`);
+  // console.log(`in getContent function: ${jwt}`);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CurrentUserContext } from "../../contexts/currentUserContext";
 import { Link } from 'react-router-dom';
 import NavigationMenu from "../Navigation/Navigation";
 import openMenuMobileIconWhite from '../../images/menu.svg';
@@ -9,6 +10,8 @@ import signOutIconWhite from "../../images/logoutWhite.svg";
 
 function Header(props) {
 
+    const currentUser = useContext(CurrentUserContext)
+    
     const [isMenuNavOpen, setMenuNavOpen] = useState(false);
     function openMenuNav() {
         console.log('openMenuNav');
@@ -70,17 +73,17 @@ function Header(props) {
 
                     <button 
                         className="header__button" 
-                        onClick={ props.openPopupSignin }
+                        onClick={ props.loggedIn ? props.handleSignOut : props.openPopupSignin }
                         style={ props.page === "home"  || isMenuNavOpen === true ? 
-                            {color: '#fff', border: '1px solid #fff', padding: '0' } : 
-                            {color: '#1A1B22', border: '1px solid #1A1B22', padding: '0 0 0 19px'} }
+                            {color: '#fff', border: '1px solid #fff', padding: '0 19px', justifyContent: 'space-around' } : 
+                            {color: '#1A1B22', border: '1px solid #1A1B22', padding: '0 19px', justifyContent: 'space-around'} }
                         
                     >
-                        { props.page === "home" ? "Sign in" : "Username" }
-                        { props.page !== "home" ? 
+                        { props.loggedIn ? currentUser.name : "Sign in" }
+                        { props.loggedIn ? 
                             <img 
-                                className="saved-news-header__icon" 
-                                src={ isMenuNavOpen ? signOutIconWhite : signOutIconBlack } alt="Log out icon" 
+                            className="header__logout-icon" 
+                            src={ props.page === "home" || isMenuNavOpen ? signOutIconWhite : signOutIconBlack } alt="Log out icon" 
                             />
                             :
                             ""
