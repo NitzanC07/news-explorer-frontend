@@ -1,9 +1,18 @@
 import NewsCard from "../NewsCard/NewsCard";
-import image01 from "../../images/cards-images/image_08.png";
-import image02 from "../../images/cards-images/image_04.png";
-import image03 from "../../images/cards-images/image_07.png";
+import { useEffect, useState } from "react";
 
 function NewsCardList(props) {
+
+    const [representArticles, setRepresentArticles] = useState([]);
+    const [lastArticle, setLastArticle] = useState(3);
+    
+    function handleShowMore() {
+        setLastArticle(lastArticle + 3);
+    }
+
+    useEffect(() => {
+        setRepresentArticles(props.articles.slice(0, lastArticle))
+    }, [lastArticle, props.articles])
 
     return(
 
@@ -15,43 +24,34 @@ function NewsCardList(props) {
             }
             <div className="news-card-list__cards">
                 <div className="news-card-list__cards-container">
-                    <NewsCard
-                        page={props.page}
-                        topRightIcon={props.topRightIcon}
-                        textIcon={props.textIcon}
-                        image={image01}
-                        title="Everyone Needs a Special 'Sit Spot' in Nature"
-                        time="November 4, 2020"
-                        text="Bla Bla Bla Bla Bla Bla Bla Ever since I read Richard Louv's influential book, 'Last Child in the Woods,' the idea of having a special 'sit spot' has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find..."
-                        source="treehugger"
-                        openPopupSignin={props.openPopupSignin}
-                    />
-                    <NewsCard
-                        page={props.page}
-                        topRightIcon={props.topRightIcon}
-                        textIcon={props.textIcon}
-                        image={image02}
-                        title="Nature makes you better"
-                        time="February 19, 2019"
-                        text="We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through leaves."
-                        source="national geographic"
-                        openPopupSignin={props.openPopupSignin}
-                    />
-                    <NewsCard
-                        page={props.page}
-                        topRightIcon={props.topRightIcon}
-                        textIcon={props.textIcon}
-                        image={image03}
-                        title="Grand Teton Renews Historic Crest Trail"
-                        time="October 19, 2020"
-                        text="“The linking together of the Cascade and Death Canyon trails, at their heads, took place on October 1, 1933, and marked the first step in the realization of a plan whereby the hiker will be..."
-                        source="national geographic"
-                        openPopupSignin={props.openPopupSignin}
-                    />
+
+                    {
+                        representArticles.map((article, index) => (
+                            <NewsCard 
+                                key={index}
+                                id={index}
+                                page={props.page}
+                                topRightIcon={props.topRightIcon}
+                                textIcon={props.textIcon}
+                                image={article.urlToImage}      
+                                title={article.title}
+                                time={article.publishedAt}
+                                text={article.description}
+                                source={article.source.name}
+                                openPopupSignin={props.openPopupSignin}        
+                            />
+                        ))
+                    }
+
                 </div>
                 {
                     props.page === "main" ?
-                    <button className="news-card-list__button">Show more</button> :
+                    <button 
+                        className="news-card-list__button"
+                        onClick={handleShowMore}
+                    >
+                        Show more
+                    </button> :
                     ""
                 }
                 

@@ -8,6 +8,7 @@ import PopupSignin from '../PopupSignin/PopupSignin';
 import PopupSignup from '../PopupSignup/PopupSignup';
 import PopupRegisterSuccessfully from '../PopupRegisterSuccessfully/PopupRegisterSuccessfully';
 import * as auth from '../../utils/auth';
+import api from '../../utils/NewsApi';
 
 function App() {
 
@@ -64,6 +65,18 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    api.getArticles("nature", "2022-07-27", "2022-07-20")
+      .then((articlesData) => {
+        setArticles(articlesData.articles)
+      })
+      .catch((err) => {
+        console.log(`Somthing wrong with setArticles function. ${err.name}: ${err}`);
+      })
+  }, []);
+
   const [isPopupSigninOpen, setPopupSigninOpen] = useState(false);
   const [isPopupSignupOpen, setPopupSignupOpen] = useState(false);
   const [isPopupRegisterSuccessfully, setPopupRegisterSuccessfully] = useState(false);
@@ -112,6 +125,7 @@ function App() {
                 openPopupSignin={openPopupSignin}
                 openPopupSignup={openPopupSignup}
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
+                articles={articles}
               />} 
             />
 
