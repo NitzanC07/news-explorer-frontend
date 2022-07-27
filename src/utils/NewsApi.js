@@ -11,10 +11,10 @@ class Api {
   
     // other methods for working with the API
   
-    getArticles() {
-      return this.customFetch(`${this._baseUrl}/articles`, {
+    getArticles(keyword, currentDate, weekAgo) {
+      return this.customFetch(`${this._baseUrl}&q=${keyword}&from=${weekAgo}&to=${currentDate}&pageSize=100`, {
         headers: this._headers,
-        method: 'GET' // default option
+        method: 'GET'
       })
     }
     
@@ -26,14 +26,13 @@ class Api {
       })
     }
   }
-  
-  
+
   // API key: 2fcf2a6183714400b92824aef8d7835e
   const api = new Api({
-      baseUrl: "https://newsapi.org/everything",
+      baseUrl: `https://nomoreparties.co/news/v2/everything?apiKey=2fcf2a6183714400b92824aef8d7835e`,
       headers: {
-        authorization: "2fcf2a6183714400b92824aef8d7835e",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        
       }
   });
   

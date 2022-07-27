@@ -26,6 +26,7 @@ function Main(props) {
                 topRightIcon={[unsaveIcon, notLoggedInIcon]}
                 textIcon="Sign in to save articles"
                 openPopupSignin={props.openPopupSignin}
+                articles={props.articles}
             />
 
             <About />
