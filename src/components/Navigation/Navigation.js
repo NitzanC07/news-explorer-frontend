@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function NavigationMenu(props) {
@@ -9,9 +8,15 @@ function NavigationMenu(props) {
                 <li className="navigation-menu__item navigation-menu__item_active" style={props.page === 'home' && !props.isMobile ? props.borderStyle : {} }>
                     <Link className="navigation-menu__link" style={props.textStyle} to='/'>Home</Link>
                 </li>
-                <li className="navigation-menu__item" style={ props.page === 'saved-articles' && !props.isMobile ? props.borderStyle : {} }>
-                    <Link className="navigation-menu__link " style={props.textStyle} to='/saved-news'>Saved articles</Link>
-                </li>
+                {
+                    props.loggedIn ?
+                    <li className="navigation-menu__item" style={ props.page === 'saved-articles' && !props.isMobile ? props.borderStyle : {} }>
+                        <Link className="navigation-menu__link " style={props.textStyle} to='/saved-news'>Saved articles</Link>
+                    </li> 
+                    :
+                    ""
+                }
+                
             </ul>
         </nav>
     )

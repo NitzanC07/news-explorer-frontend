@@ -61,6 +61,7 @@ function Header(props) {
             <div className={`header__menu ${isMenuNavOpen ? 'header__menu_open' : ''}`}>
                 <NavigationMenu 
                     page={ props.page || isMenuNavOpen === true } 
+                    loggedIn={props.loggedIn}
                     isMobile = {isMobile}
                     textStyle={ props.page === "home" || isMenuNavOpen === true ? 
                         { color: '#fff'} : 
