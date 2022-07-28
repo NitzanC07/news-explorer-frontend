@@ -8,6 +8,8 @@ import { CurrentUserContext } from "../../contexts/currentUserContext";
 
 function SavedNews(props) {
 
+    // console.log(`SavedNews: ${props.loggedIn}`);
+
     const currentUser = useContext(CurrentUserContext);
 
     return(
@@ -19,12 +21,16 @@ function SavedNews(props) {
                 page="saved-articles"
             />
 
-            <SavedNewsHeader />
+            <SavedNewsHeader 
+                amountArticles={props.articles.length}
+                username={currentUser.username}
+            />
 
             <NewsCardList 
                 page="saved-articles"
                 topRightIcon={[trashIcon, trashIconActive]}
                 textIcon="Remove from saved articles"
+                articles={props.articles}
             />
         </section>
     )

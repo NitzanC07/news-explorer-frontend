@@ -3,16 +3,18 @@ import { useEffect, useState } from "react";
 
 function NewsCardList(props) {
 
+    // console.log(`NewsCardList: ${props.loggedIn}`);
+
     const [representArticles, setRepresentArticles] = useState([]);
-    const [lastArticle, setLastArticle] = useState(3);
+    const [amountArticles, setAmountArticles] = useState(3);
     
     function handleShowMore() {
-        setLastArticle(lastArticle + 3);
+        setAmountArticles(amountArticles + 3);
     }
 
     useEffect(() => {
-        setRepresentArticles(props.articles.slice(0, lastArticle))
-    }, [lastArticle, props.articles])
+        setRepresentArticles(props.articles.slice(0, amountArticles))
+    }, [amountArticles, props.articles]);
 
     return(
 
@@ -31,6 +33,7 @@ function NewsCardList(props) {
                                 key={index}
                                 id={index}
                                 page={props.page}
+                                loggedIn={props.loggedIn}
                                 topRightIcon={props.topRightIcon}
                                 textIcon={props.textIcon}
                                 image={article.urlToImage}      

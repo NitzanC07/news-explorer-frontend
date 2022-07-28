@@ -8,18 +8,24 @@ import PopupSignin from '../PopupSignin/PopupSignin';
 import PopupSignup from '../PopupSignup/PopupSignup';
 import PopupRegisterSuccessfully from '../PopupRegisterSuccessfully/PopupRegisterSuccessfully';
 import * as auth from '../../utils/auth';
-import api from '../../utils/NewsApi';
+import * as mainApi from '../../utils/MainApi';
+import newsApi from '../../utils/NewsApi';
+
 
 function App() {
 
+  // Details about the user and authorization.
   const [currentUser , setCurrentUser ] = useState({});
+  const [jwt, setJwt] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
   
   function handleLoginSubmit(email, password) {
     auth.login(email, password)
     .then((res) => {
         if(res) {
             localStorage.setItem("jwt", res);
+            setCurrentUser(currentUser);
             setLoggedIn(true);
             closeAllPopups();
         }
@@ -43,10 +49,12 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
-}
+  }
 
+  // Automatic logining in for existing user which saved in local storage.
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
+    setJwt(localStorage.getItem('jwt'));
     if(jwt) {
       auth.getContent(jwt)
       .then((data) => {
@@ -55,7 +63,8 @@ function App() {
               setCurrentUser({ 
                 _id: data._id, 
                 name: data.username, 
-                email: data.email 
+                email: data.email,
+                savedArticles: savedArticles,
               });
           }
       }, )
@@ -63,20 +72,9 @@ function App() {
           console.log(`Something went wrong in getContent function: ${err}`);
       })
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, savedArticles]);
 
-  const [articles, setArticles] = useState([])
-
-  useEffect(() => {
-    api.getArticles("nature", "2022-07-27", "2022-07-20")
-      .then((articlesData) => {
-        setArticles(articlesData.articles)
-      })
-      .catch((err) => {
-        console.log(`Somthing wrong with setArticles function. ${err.name}: ${err}`);
-      })
-  }, []);
-
+  // Functions for opening and closing popups.
   const [isPopupSigninOpen, setPopupSigninOpen] = useState(false);
   const [isPopupSignupOpen, setPopupSignupOpen] = useState(false);
   const [isPopupRegisterSuccessfully, setPopupRegisterSuccessfully] = useState(false);
@@ -99,6 +97,51 @@ function App() {
     setPopupRegisterSuccessfully(true);
   }
 
+  // Search articles from api by a keyword that the user entered.
+  const [articles, setArticles] = useState([]);
+  const [keyword, setKeyword] = useState('');
+
+  function handleSearchKeyword(userTopic) {
+    setKeyword(userTopic);
+  }
+  
+  useEffect(() => {
+    const date = new Date();
+    const currentDate = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    const weekAgo = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate() - 7).padStart(2, '0')}`;
+
+    if (keyword) {
+      newsApi.getArticles(keyword, currentDate, weekAgo)
+      .then((articlesData) => {
+        setArticles(articlesData.articles);
+      })
+      .catch((err) => {
+        console.log(`Somthing wrong with setArticles function. ${err.name}: ${err}`);
+      })
+    }
+  }, [keyword]);
+
+  function createOneArticle(articleIndex) {
+    const article = articles[articleIndex];
+    mainApi.createNewArticle({
+      jwt: jwt, 
+      articleData: {
+        keyword: keyword,
+        title: article.title,
+        text: article.description,
+        date: article.publishedAt,
+        source: article.source.name,
+        link: article.url,
+        image: article.urlToImage,
+      }
+    })
+  }
+
+  // Saves articles of the current user.
+  function saveArticle(articleId) {
+    
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
 
@@ -114,6 +157,7 @@ function App() {
                   currentUser={currentUser}
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
+                  articles={savedArticles}
                 />} 
             />
 
@@ -126,6 +170,9 @@ function App() {
                 openPopupSignup={openPopupSignup}
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
                 articles={articles}
+                handleSearchKeyword={handleSearchKeyword}
+                createArticle={createOneArticle}
+                handleSaveArticle={saveArticle}
               />} 
             />
 

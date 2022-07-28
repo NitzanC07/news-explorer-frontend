@@ -1,4 +1,4 @@
-class Api {
+class NewsApi {
     constructor({baseUrl, headers}) {
       this._baseUrl = baseUrl;
       this._headers = headers;
@@ -17,18 +17,10 @@ class Api {
         method: 'GET'
       })
     }
-    
-    changeSavedCardStatus(cardId, isSaved) {
-      const methodType = isSaved ? 'PUT' : 'DELETE'
-      return this.customFetch(`${this._baseUrl}/articles/saved/${cardId}`, {
-        headers: this._headers, 
-        method: methodType,     
-      })
-    }
   }
 
   // API key: 2fcf2a6183714400b92824aef8d7835e
-  const api = new Api({
+  const newsApi = new NewsApi({
       baseUrl: `https://nomoreparties.co/news/v2/everything?apiKey=2fcf2a6183714400b92824aef8d7835e`,
       headers: {
         "Content-Type": "application/json",
@@ -36,5 +28,5 @@ class Api {
       }
   });
   
-  export default api;
+  export default newsApi;
   

@@ -9,6 +9,7 @@ function ProtectedRoute({ children, loggedIn, ...props }) {
       <SavedNews 
         loggedIn={loggedIn}
         handleSignOut={props.handleSignOut}
+        articles={props.articles}
       /> 
       :
       <Navigate to='/' />
