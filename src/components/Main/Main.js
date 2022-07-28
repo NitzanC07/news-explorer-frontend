@@ -7,7 +7,7 @@ import notLoggedInIcon from '../../images/SavedArticleIcon-notLoggedIn.svg';
 
 function Main(props) {
 
-    // console.log(`Main props: ${props.loggedIn}`);
+    // console.log(`Main props: ${props}`);
 
     return(
         <main className="main">
@@ -18,16 +18,27 @@ function Main(props) {
                     handleSignOut={props.handleSignOut}
                     openPopupSignin={props.openPopupSignin}
                 />
-                <SearchForm />
+
+                <SearchForm
+                    handleSearchKeyword={props.handleSearchKeyword}
+                />
             </div>
 
-            <NewsCardList 
-                page="main"
-                topRightIcon={[unsaveIcon, notLoggedInIcon]}
-                textIcon="Sign in to save articles"
-                openPopupSignin={props.openPopupSignin}
-                articles={props.articles}
-            />
+            {
+                    props.articles.length === 0 ? 
+                    ""
+                    :
+                    <NewsCardList 
+                        page="main"
+                        loggedIn={props.loggedIn}
+                        topRightIcon={[unsaveIcon, notLoggedInIcon]}
+                        textIcon={props.loggedIn ? "Click to save article" : "Sign in to save articles"}
+                        openPopupSignin={props.openPopupSignin}
+                        articles={props.articles}
+                        createArticle={props.createArticle}
+                        handleCreateArticles={props.handleCreateArticles}
+                    />   
+            }
 
             <About />
         </main>

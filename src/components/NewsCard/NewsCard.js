@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 function NewsCard(props) {
 
+    // console.log(`NewsCard: ${props.loggedIn}`);
+
     const [isShown, setIsShown] = useState(false);
     const [saveIcon, setSaveIcon] = useState(props.topRightIcon[0]);
 
@@ -16,7 +18,10 @@ function NewsCard(props) {
     }
 
     function saveIconClick() {
-        props.openPopupSignin();
+        props.loggedIn ?
+            props.handleSaveArticle(props.id)
+            :
+            props.openPopupSignin();
     }
 
 

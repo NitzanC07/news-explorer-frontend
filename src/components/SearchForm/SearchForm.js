@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 function SearchForm(props) {
 
-    function handleSubmit(evt) {
+    const [userKeyword, setUserTopic] = useState('');
+
+    function handleSearchKeyword(evt) {
         evt.preventDefault();
-        console.log('Search keyword');
+        props.handleSearchKeyword(userKeyword);
     }
 
     return(
@@ -12,9 +16,16 @@ function SearchForm(props) {
                 <p className="search-form__text">Find the latest news on any topic and save them in your personal account.</p>
                 <form 
                     className="search-form__search-field"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSearchKeyword}
                 >
-                    <input type='text' className="search-form__input" placeholder="Enter topic"/>
+                    <input 
+                        className="search-form__input"
+                        type='text'  
+                        placeholder="Enter topic" 
+                        value={userKeyword}
+                        onChange={(e) => setUserTopic(e.target.value)}
+                        required
+                    />
                     <button type="submit" className="search-form__button">Search</button>
                 </form>
             </div>

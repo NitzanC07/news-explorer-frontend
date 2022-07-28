@@ -4,7 +4,7 @@ function PopupRegisterSuccessfully(props) {
 
     function openSignin() {
         props.onClose();
-        props.handleSignin();
+        props.openPopupSignin();
     }
 
     return(
