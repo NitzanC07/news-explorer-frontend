@@ -9,6 +9,7 @@ function ProtectedRoute({ children, loggedIn, ...props }) {
       <SavedNews 
         loggedIn={loggedIn}
         handleSignOut={props.handleSignOut}
+        handleSavedArticles={props.handleSavedArticles}
         articles={props.articles}
       /> 
       :

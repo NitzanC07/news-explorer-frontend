@@ -13,7 +13,13 @@ function NewsCardList(props) {
     }
 
     useEffect(() => {
-        setRepresentArticles(props.articles.slice(0, amountArticles))
+        if (props.page === "main") {
+            console.log('newsaCardList:', props.articles);
+            setRepresentArticles(props.articles.slice(0, amountArticles))
+        } else  if (props.page === "saved-articles") {
+            console.log('newsaCardList:', props.articles);
+            props.handleSavedArticles(props.articles.slice(0, amountArticles));
+        }
     }, [amountArticles, props.articles]);
 
     return(
@@ -41,7 +47,8 @@ function NewsCardList(props) {
                                 time={article.publishedAt}
                                 text={article.description}
                                 source={article.source.name}
-                                openPopupSignin={props.openPopupSignin}        
+                                openPopupSignin={props.openPopupSignin}    
+                                handleSaveArticle={props.handleSaveArticle}    
                             />
                         ))
                     }

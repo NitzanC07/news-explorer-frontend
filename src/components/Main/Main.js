@@ -36,7 +36,7 @@ function Main(props) {
                         openPopupSignin={props.openPopupSignin}
                         articles={props.articles}
                         createArticle={props.createArticle}
-                        handleCreateArticles={props.handleCreateArticles}
+                        handleSaveArticle={props.handleSaveArticle}
                     />   
             }
 

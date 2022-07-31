@@ -10,14 +10,15 @@ export const getSavedArticles = (jwt) => {
     })
 }
 
-export const createNewArticle = (data) => {
+export const createNewArticle = (jwt, articleData) => {
+    console.log(`articleData: ${articleData}`);
     return fetch(`${BASE_URL}/articles`, {
         method: 'POST',
         headers: {
-            authorization: `Bearer ${data.jwt}`,
+            authorization: `Bearer ${jwt}`,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(data.articleData),
+        body: JSON.stringify(articleData),
     })
 }
 
