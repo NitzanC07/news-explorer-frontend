@@ -18,6 +18,7 @@ function App() {
   const [currentUser , setCurrentUser ] = useState({});
   const [jwt, setJwt] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   
   function handleLoginSubmit(email, password) {
@@ -64,7 +65,6 @@ function App() {
                 _id: data._id, 
                 name: data.username, 
                 email: data.email,
-                savedArticles: savedArticles,
               });
           }
       }, )
@@ -72,7 +72,7 @@ function App() {
           console.log(`Something went wrong in getContent function: ${err}`);
       })
     }
-  }, [isLoggedIn, savedArticles]);
+  }, [isLoggedIn]);
 
   // Functions for opening and closing popups.
   const [isPopupSigninOpen, setPopupSigninOpen] = useState(false);
@@ -98,7 +98,6 @@ function App() {
   }
 
   // Search articles from api by a keyword that the user entered.
-  const [articles, setArticles] = useState([]);
   const [keyword, setKeyword] = useState('');
 
   function handleSearchKeyword(userTopic) {
@@ -121,25 +120,35 @@ function App() {
     }
   }, [keyword]);
 
-  function createOneArticle(articleIndex) {
-    const article = articles[articleIndex];
-    mainApi.createNewArticle({
-      jwt: jwt, 
-      articleData: {
+  // Saves articles of the current user.
+  function saveArticle(articleIndex) {
+    const articleData = articles[articleIndex];
+    mainApi.createNewArticle(jwt, {
         keyword: keyword,
-        title: article.title,
-        text: article.description,
-        date: article.publishedAt,
-        source: article.source.name,
-        link: article.url,
-        image: article.urlToImage,
-      }
+        title: articleData.title,
+        text: articleData.description,
+        date: articleData.publishedAt,
+        source: articleData.source.name,
+        link: articleData.url,
+        image: articleData.urlToImage,
+      })
+    .then((res) => {
+      setSavedArticles([res, ...savedArticles]);
+      console.log('Save article: ', res);
+    })
+    .catch((err) => {
+      console.log(err);
     })
   }
 
-  // Saves articles of the current user.
-  function saveArticle(articleId) {
-    
+  function handleSavedArticles() {
+    mainApi.getSavedArticles(jwt)
+    .then((res) => {
+      console.log(`getSavedArticle: ${res}`);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   return (
@@ -157,6 +166,7 @@ function App() {
                   currentUser={currentUser}
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
+                  handleSavedArticles={handleSavedArticles}
                   articles={savedArticles}
                 />} 
             />
@@ -171,7 +181,6 @@ function App() {
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
                 articles={articles}
                 handleSearchKeyword={handleSearchKeyword}
-                createArticle={createOneArticle}
                 handleSaveArticle={saveArticle}
               />} 
             />

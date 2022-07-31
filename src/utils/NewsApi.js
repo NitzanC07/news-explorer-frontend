@@ -19,14 +19,14 @@ class NewsApi {
     }
   }
 
-  // API key: 2fcf2a6183714400b92824aef8d7835e
-  const newsApi = new NewsApi({
-      baseUrl: `https://nomoreparties.co/news/v2/everything?apiKey=2fcf2a6183714400b92824aef8d7835e`,
-      headers: {
-        "Content-Type": "application/json",
-        
-      }
-  });
-  
-  export default newsApi;
+// API key: 2fcf2a6183714400b92824aef8d7835e
+const newsApi = new NewsApi({
+    baseUrl: `https://nomoreparties.co/news/v2/everything?apiKey=2fcf2a6183714400b92824aef8d7835e`,
+    headers: {
+      "Content-Type": "application/json",
+      
+    }
+});
+
+export default newsApi;
   
