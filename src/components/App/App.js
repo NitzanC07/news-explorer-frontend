@@ -120,6 +120,19 @@ function App() {
     }
   }, [keyword]);
 
+  useEffect(() => {
+    if(jwt) {
+      mainApi.getSavedArticles(jwt)
+        .then(res => {
+          setSavedArticles(res);
+          console.log(`getSavedArticles: ${res}`);
+        })
+        .catch(err => {
+          console.log(`Error in getSavedArticles: ${err}`);
+        })
+    }
+  }, [jwt]);
+  
   // Saves articles of the current user.
   function saveArticle(articleIndex) {
     const articleData = articles[articleIndex];
@@ -133,7 +146,6 @@ function App() {
         image: articleData.urlToImage,
       })
     .then((res) => {
-      setSavedArticles([res, ...savedArticles]);
       console.log('Save article: ', res);
     })
     .catch((err) => {
@@ -141,15 +153,9 @@ function App() {
     })
   }
 
-  function handleSavedArticles() {
-    mainApi.getSavedArticles(jwt)
-    .then((res) => {
-      console.log(`getSavedArticle: ${res}`);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
+  // function unsaveArticle(article) {
+  //   mainApi.unsavedArticle(jwt, articleId)
+  // }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -166,7 +172,6 @@ function App() {
                   currentUser={currentUser}
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
-                  handleSavedArticles={handleSavedArticles}
                   articles={savedArticles}
                 />} 
             />

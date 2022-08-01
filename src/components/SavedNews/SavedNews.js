@@ -30,7 +30,6 @@ function SavedNews(props) {
                 page="saved-articles"
                 topRightIcon={[trashIcon, trashIconActive]}
                 textIcon="Remove from saved articles"
-                handleSavedArticles={props.handleSavedArticles}
                 articles={props.articles}
             />
         </section>
