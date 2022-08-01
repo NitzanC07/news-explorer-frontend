@@ -15,12 +15,13 @@ function NewsCardList(props) {
     useEffect(() => {
         if (props.page === "main") {
             console.log('newsaCardList:', props.articles);
-            setRepresentArticles(props.articles.slice(0, amountArticles))
-        } else  if (props.page === "saved-articles") {
-            console.log('newsaCardList:', props.articles);
-            props.handleSavedArticles(props.articles.slice(0, amountArticles));
+            setRepresentArticles(props.articles.slice(0, amountArticles));
         }
-    }, [amountArticles, props.articles]);
+        if (props.page === "saved-articles") {
+            console.log('newsaCardList:', props.articles);
+            setRepresentArticles(props.articles);
+        }
+    }, [amountArticles, props.articles, props.page]);
 
     return(
 
@@ -42,11 +43,12 @@ function NewsCardList(props) {
                                 loggedIn={props.loggedIn}
                                 topRightIcon={props.topRightIcon}
                                 textIcon={props.textIcon}
-                                image={article.urlToImage}      
+                                image={article.urlToImage || article.image}      
+                                keyword={article.keyword}
                                 title={article.title}
-                                time={article.publishedAt}
-                                text={article.description}
-                                source={article.source.name}
+                                time={article.publishedAt || article.date}
+                                text={article.description || article.text}
+                                source={article.source.name || article.source}
                                 openPopupSignin={props.openPopupSignin}    
                                 handleSaveArticle={props.handleSaveArticle}    
                             />

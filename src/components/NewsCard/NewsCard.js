@@ -46,7 +46,7 @@ function NewsCard(props) {
                 )}
                 
             </div>
-            {props.page === "saved-articles" ? <div className="news-card__keyword-tag">Keyword</div> : ''}
+            {props.page === "saved-articles" ? <div className="news-card__keyword-tag">{props.keyword}</div> : ''}
             <p className="news-card__time">{props.time}</p>
             <h2 className="news-card__title">{props.title}</h2>
             <p className="news-card__text">{props.text}</p>
