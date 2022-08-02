@@ -5,6 +5,20 @@ function SavedNewsHeader(props) {
 
     const currentUser = useContext(CurrentUserContext);
     
+    function findKeywords() {
+        const keywords = {}
+        props.articles.forEach(article => {
+            if(keywords[article.keyword] === 1) {
+                keywords[article.keyword] += 1
+            } else {
+                keywords[article.keyword] = 1
+            }
+            console.log(Object.keys(keywords), Object.values(keywords))
+        })
+        return keywords
+    }
+    console.log(findKeywords());
+
     return(
         <section className="saved-news-header">
             <p className="saved-news-header__page-name">Saved articles</p>

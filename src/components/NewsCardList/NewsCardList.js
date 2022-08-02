@@ -39,6 +39,7 @@ function NewsCardList(props) {
                             <NewsCard 
                                 key={index}
                                 id={index}
+                                article={article}
                                 page={props.page}
                                 loggedIn={props.loggedIn}
                                 topRightIcon={props.topRightIcon}
@@ -51,6 +52,7 @@ function NewsCardList(props) {
                                 source={article.source.name || article.source}
                                 openPopupSignin={props.openPopupSignin}    
                                 handleSaveArticle={props.handleSaveArticle}    
+                                unsaveArticle={props.unsaveArticle}
                             />
                         ))
                     }

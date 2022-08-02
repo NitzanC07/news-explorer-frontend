@@ -1,23 +1,29 @@
 const BASE_URL = "https://api.nitzan-fp.students.nomoredomainssbs.ru";
 
-const customFetch = (url, headers) => {
-    return fetch(url, headers)
-    .then(res => res.ok ? res.json() : Promise.reject(res.statusText))
-  } 
+export const checkResponse = (res) => {
+    // console.log(`checkResponse: ${res}`);
+    if(res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error in response from the server: ${res.status}`)
+    }
+
+  }
 
 export const getSavedArticles = (jwt) => {
-    return customFetch(`${BASE_URL}/articles`, {
+    return fetch(`${BASE_URL}/articles`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${jwt}`,
             "Content-Type": "application/json",
         }
     })
+    .then(checkResponse)
 }
 
 export const createNewArticle = (jwt, articleData) => {
     console.log(`articleData: ${articleData}`);
-    return customFetch(`${BASE_URL}/articles`, {
+    return fetch(`${BASE_URL}/articles`, {
         method: 'POST',
         headers: {
             authorization: `Bearer ${jwt}`,
@@ -25,14 +31,16 @@ export const createNewArticle = (jwt, articleData) => {
         },
         body: JSON.stringify(articleData),
     })
+    .then(checkResponse)
 }
 
 export const unsavedArticle = (jwt, articleId) => {
-    return customFetch(`${BASE_URL}/articles/${articleId}`, {
+    return fetch(`${BASE_URL}/articles/${articleId}`, {
         method: 'DELETE',
         headers: {
             authorization: `Bearer ${jwt}`,
             "Content-Type": "application/json",
         }
     })
+    .then(checkResponse)
 }
