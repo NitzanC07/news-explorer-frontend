@@ -125,7 +125,7 @@ function App() {
       mainApi.getSavedArticles(jwt)
         .then(res => {
           setSavedArticles(res);
-          console.log(`getSavedArticles: ${res}`);
+          // console.log(`getSavedArticles: ${res}`);
         })
         .catch(err => {
           console.log(`Error in getSavedArticles: ${err}`);
@@ -152,6 +152,10 @@ function App() {
       console.log(err);
     })
   }
+
+  function findKeywords() {
+    
+}
 
   function unsaveArticle(articleId) {
     mainApi.unsavedArticle(jwt, articleId)
@@ -180,6 +184,7 @@ function App() {
                   loggedIn={isLoggedIn}
                   articles={savedArticles}
                   unsaveArticle={unsaveArticle}
+                  mostKeywords={findKeywords}
                 />} 
             />
 

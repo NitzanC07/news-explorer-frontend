@@ -18,10 +18,12 @@ function NewsCard(props) {
     }
 
     function saveIconClick() {
-        props.loggedIn ?
+        if (props.loggedIn) {
             props.handleSaveArticle(props.id)
-            :
+            setSaveIcon(props.topRightIcon[2])
+        } else {
             props.openPopupSignin();
+        }
     }
 
     function unsaveArticle() {
