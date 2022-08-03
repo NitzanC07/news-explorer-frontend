@@ -125,7 +125,7 @@ function App() {
       mainApi.getSavedArticles(jwt)
         .then(res => {
           setSavedArticles(res);
-          console.log(`getSavedArticles: ${res}`);
+          // console.log(`getSavedArticles: ${res}`);
         })
         .catch(err => {
           console.log(`Error in getSavedArticles: ${err}`);
@@ -153,9 +153,19 @@ function App() {
     })
   }
 
-  // function unsaveArticle(article) {
-  //   mainApi.unsavedArticle(jwt, articleId)
-  // }
+  function findKeywords() {
+    
+}
+
+  function unsaveArticle(articleId) {
+    mainApi.unsavedArticle(jwt, articleId)
+    .then(res => {
+      console.log(`${res}: Card ${articleId} was deleted.`);
+    })
+    .catch(err => {
+      console.log(`Something went wrong with unsaveArticle function: ${err}`);
+    })
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -173,6 +183,8 @@ function App() {
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
                   articles={savedArticles}
+                  unsaveArticle={unsaveArticle}
+                  mostKeywords={findKeywords}
                 />} 
             />
 

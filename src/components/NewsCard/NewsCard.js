@@ -18,10 +18,16 @@ function NewsCard(props) {
     }
 
     function saveIconClick() {
-        props.loggedIn ?
+        if (props.loggedIn) {
             props.handleSaveArticle(props.id)
-            :
+            setSaveIcon(props.topRightIcon[2])
+        } else {
             props.openPopupSignin();
+        }
+    }
+
+    function unsaveArticle() {
+        props.unsaveArticle(props.article._id);
     }
 
 
@@ -35,7 +41,7 @@ function NewsCard(props) {
                     type="button"
                     onMouseEnter={saveIconEnterMoouse}
                     onMouseLeave={saveIconLeaveMoouse}
-                    onClick={saveIconClick}
+                    onClick={props.page === "main" ? saveIconClick : unsaveArticle}
                 >
                     <img src={saveIcon} alt="Save icon" />
                 </button>

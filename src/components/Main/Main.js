@@ -4,6 +4,7 @@ import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import unsaveIcon from '../../images/SavedArticleIcon-NotSaved.svg';
 import notLoggedInIcon from '../../images/SavedArticleIcon-notLoggedIn.svg';
+import savedIcon from '../../images/SavedArticlesIcon-Saved.svg';
 
 function Main(props) {
 
@@ -31,7 +32,7 @@ function Main(props) {
                     <NewsCardList 
                         page="main"
                         loggedIn={props.loggedIn}
-                        topRightIcon={[unsaveIcon, notLoggedInIcon]}
+                        topRightIcon={[unsaveIcon, notLoggedInIcon, savedIcon]}
                         textIcon={props.loggedIn ? "Click to save article" : "Sign in to save articles"}
                         openPopupSignin={props.openPopupSignin}
                         articles={props.articles}

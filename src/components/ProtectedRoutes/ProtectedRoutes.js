@@ -10,6 +10,8 @@ function ProtectedRoute({ children, loggedIn, ...props }) {
         loggedIn={loggedIn}
         handleSignOut={props.handleSignOut}
         articles={props.articles}
+        unsaveArticle={props.unsaveArticle}
+        mostKeywords={props.mostKeywords}
       /> 
       :
       <Navigate to='/' />
