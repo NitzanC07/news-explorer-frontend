@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 function NewsCard(props) {
 
@@ -40,6 +39,14 @@ function NewsCard(props) {
                 target='_blank' 
                 rel="noreferrer">
             <img className="news-card__image" src={props.image} alt="card's pic" />
+            </a>
+            
+            {props.page === "saved-articles" ? <div className="news-card__keyword-tag">{props.keyword}</div> : ''}
+            <p className="news-card__time">{`${months[props.time.slice(5, 7)-1]} ${props.time.slice(8, 10)}, ${props.time.slice(0, 4)}`}</p>
+            <h2 className="news-card__title">{props.title}</h2>
+            <p className="news-card__text">{props.text}</p>
+            <p className="news-card__source">{props.source}</p>
+            
             <div className="news-card__save-button">
                 
                 <button 
@@ -58,12 +65,6 @@ function NewsCard(props) {
                 )}
                 
             </div>
-            {props.page === "saved-articles" ? <div className="news-card__keyword-tag">{props.keyword}</div> : ''}
-            <p className="news-card__time">{`${months[props.time.slice(5, 7)-1]} ${props.time.slice(8, 10)}, ${props.time.slice(0, 4)}`}</p>
-            <h2 className="news-card__title">{props.title}</h2>
-            <p className="news-card__text">{props.text}</p>
-            <p className="news-card__source">{props.source}</p>
-            </a>
         </div>
     )
 }
