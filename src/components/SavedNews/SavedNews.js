@@ -25,7 +25,6 @@ function SavedNews(props) {
                 amountArticles={props.articles.length}
                 username={currentUser.username}
                 articles={props.articles}
-                mostKeywords={props.mostKeywords}
             />
 
             <NewsCardList 

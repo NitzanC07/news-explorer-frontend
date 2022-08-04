@@ -20,6 +20,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   function handleLoginSubmit(email, password) {
     auth.login(email, password)
@@ -110,9 +111,11 @@ function App() {
     const weekAgo = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate() - 7).padStart(2, '0')}`;
 
     if (keyword) {
+      setIsLoading(true);
       newsApi.getArticles(keyword, currentDate, weekAgo)
       .then((articlesData) => {
         setArticles(articlesData.articles);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(`Somthing wrong with setArticles function. ${err.name}: ${err}`);
@@ -153,10 +156,6 @@ function App() {
     })
   }
 
-  function findKeywords() {
-    
-}
-
   function unsaveArticle(articleId) {
     mainApi.unsavedArticle(jwt, articleId)
     .then(res => {
@@ -166,6 +165,8 @@ function App() {
       console.log(`Something went wrong with unsaveArticle function: ${err}`);
     })
   }
+
+  
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -184,7 +185,6 @@ function App() {
                   loggedIn={isLoggedIn}
                   articles={savedArticles}
                   unsaveArticle={unsaveArticle}
-                  mostKeywords={findKeywords}
                 />} 
             />
 
@@ -192,10 +192,12 @@ function App() {
               <Main 
                 currentUser={currentUser}
                 loggedIn={isLoggedIn}
+                isLoading={isLoading}
                 handleSignOut={handleSignOut}
                 openPopupSignin={openPopupSignin}
                 openPopupSignup={openPopupSignup}
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
+                keyword={keyword}
                 articles={articles}
                 handleSearchKeyword={handleSearchKeyword}
                 handleSaveArticle={saveArticle}

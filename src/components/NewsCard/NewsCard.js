@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 function NewsCard(props) {
 
-    // console.log(`NewsCard: ${props.loggedIn}`);
+    // console.log(`NewsCard: ${props.time}`);
 
     const [isShown, setIsShown] = useState(false);
     const [saveIcon, setSaveIcon] = useState(props.topRightIcon[0]);
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     function saveIconEnterMoouse() {
         setSaveIcon(props.topRightIcon[1]);
@@ -30,7 +31,6 @@ function NewsCard(props) {
         props.unsaveArticle(props.article._id);
     }
 
-
     return(
         <div className="news-card">
             <img className="news-card__image" src={props.image} alt="card's pic" />
@@ -53,7 +53,7 @@ function NewsCard(props) {
                 
             </div>
             {props.page === "saved-articles" ? <div className="news-card__keyword-tag">{props.keyword}</div> : ''}
-            <p className="news-card__time">{props.time}</p>
+            <p className="news-card__time">{`${months[props.time.slice(5, 7)-1]} ${props.time.slice(8, 10)}, ${props.time.slice(0, 4)}`}</p>
             <h2 className="news-card__title">{props.title}</h2>
             <p className="news-card__text">{props.text}</p>
             <p className="news-card__source">{props.source}</p>

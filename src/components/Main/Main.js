@@ -4,7 +4,10 @@ import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import unsaveIcon from '../../images/SavedArticleIcon-NotSaved.svg';
 import notLoggedInIcon from '../../images/SavedArticleIcon-notLoggedIn.svg';
+import notFoundIcon from '../../images/not-found_v1.svg';
 import savedIcon from '../../images/SavedArticlesIcon-Saved.svg';
+import NoResults from '../NoResults/NoResults';
+import Preloader from '../Preloader/Preloader';
 
 function Main(props) {
 
@@ -26,8 +29,16 @@ function Main(props) {
             </div>
 
             {
+                props.isLoading === true ?
+                <Preloader />
+                :
                     props.articles.length === 0 ? 
-                    ""
+                    props.keyword ? 
+                        <NoResults 
+                            notFoundIcon={notFoundIcon}
+                        /> 
+                        : 
+                        ""
                     :
                     <NewsCardList 
                         page="main"
