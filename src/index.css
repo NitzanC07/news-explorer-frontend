@@ -54,6 +54,7 @@
 @import url('./components/NewsCard/__text/news-card__text.css');
 @import url('./components/NewsCard/__source/news-card__source.css');
 @import url('./components/NewsCard/__keyword-tag/news-card__keyword-tag.css');
+@import url('./components/NewsCard/__link/news-card__link.css');
 /* Styles in About component */
 @import url('./components/About/about.css');
 @import url('./components/About/__image/about__image.css');

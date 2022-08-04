@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function NewsCard(props) {
 
-    // console.log(`NewsCard: ${props.time}`);
+    // console.log(`NewsCard: ${props}`);
 
     const [isShown, setIsShown] = useState(false);
     const [saveIcon, setSaveIcon] = useState(props.topRightIcon[0]);
@@ -33,6 +34,11 @@ function NewsCard(props) {
 
     return(
         <div className="news-card">
+            <a 
+                className='news-card__link'
+                href={props.article.link || props.article.url} 
+                target='_blank' 
+                rel="noreferrer">
             <img className="news-card__image" src={props.image} alt="card's pic" />
             <div className="news-card__save-button">
                 
@@ -57,6 +63,7 @@ function NewsCard(props) {
             <h2 className="news-card__title">{props.title}</h2>
             <p className="news-card__text">{props.text}</p>
             <p className="news-card__source">{props.source}</p>
+            </a>
         </div>
     )
 }

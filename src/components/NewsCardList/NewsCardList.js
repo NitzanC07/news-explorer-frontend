@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function NewsCardList(props) {
 
-    // console.log(`NewsCardList: ${props.loggedIn}`);
+    // console.log(`NewsCardList: ${props}`);
 
     const [representArticles, setRepresentArticles] = useState([]);
     const [amountArticles, setAmountArticles] = useState(3);
@@ -14,11 +14,9 @@ function NewsCardList(props) {
 
     useEffect(() => {
         if (props.page === "main") {
-            // console.log('newsaCardList:', props.articles);
             setRepresentArticles(props.articles.slice(0, amountArticles));
         }
         if (props.page === "saved-articles") {
-            // console.log('newsaCardList:', props.articles);
             setRepresentArticles(props.articles);
         }
     }, [amountArticles, props.articles, props.page]);
