@@ -7,7 +7,6 @@ export const checkResponse = (res) => {
     } else {
       return Promise.reject(`Error in response from the server: ${res.status}`)
     }
-
   }
 
 export const getSavedArticles = (jwt) => {
