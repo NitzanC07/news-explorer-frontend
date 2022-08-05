@@ -7,7 +7,6 @@ export const checkResponse = (res) => {
     } else {
       return Promise.reject(`Error in response from the server: ${res.status}`)
     }
-
   }
 
 export const getSavedArticles = (jwt) => {
@@ -22,7 +21,6 @@ export const getSavedArticles = (jwt) => {
 }
 
 export const createNewArticle = (jwt, articleData) => {
-    console.log(`articleData: ${articleData}`);
     return fetch(`${BASE_URL}/articles`, {
         method: 'POST',
         headers: {
@@ -30,6 +28,17 @@ export const createNewArticle = (jwt, articleData) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(articleData),
+    })
+    .then(checkResponse)
+}
+
+export const savedArticle = (jwt, articleId) => {
+    return fetch(`${BASE_URL}/articles/${articleId}/saved`, {
+        method: 'PUT',
+        headers: {
+            authorization: `Bearer ${jwt}`,
+            "Content-Type": "application/json",
+        }
     })
     .then(checkResponse)
 }

@@ -54,6 +54,7 @@
 @import url('./components/NewsCard/__text/news-card__text.css');
 @import url('./components/NewsCard/__source/news-card__source.css');
 @import url('./components/NewsCard/__keyword-tag/news-card__keyword-tag.css');
+@import url('./components/NewsCard/__link/news-card__link.css');
 /* Styles in About component */
 @import url('./components/About/about.css');
 @import url('./components/About/__image/about__image.css');
@@ -84,3 +85,12 @@
 @import url('./components/Popup/__info/popup__info.css');
 @import url('./components/Popup/__link/popup__link.css');
 @import url('./components/Popup/__link-info/popup__link-info.css');
+/* No results component's style */
+@import url('./components/NoResults/no-result.css');
+@import url('./components/NoResults/__icon/no-result__icon.css');
+@import url('./components/NoResults/__title/no-result__title.css');
+@import url('./components/NoResults/__text/no-result__text.css');
+/* Preloader component style */
+@import url('./components/Preloader/preloader.css');
+@import url('./components/Preloader/__circle-preloader.css/preloader__circle-preloader.css');
+@import url('./components/Preloader/__text/preloader__text.css');

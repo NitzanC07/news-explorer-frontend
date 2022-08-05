@@ -20,6 +20,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   function handleLoginSubmit(email, password) {
     auth.login(email, password)
@@ -50,6 +51,7 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
+    setSavedArticles([]);
   }
 
   // Automatic logining in for existing user which saved in local storage.
@@ -110,9 +112,11 @@ function App() {
     const weekAgo = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate() - 7).padStart(2, '0')}`;
 
     if (keyword) {
+      setIsLoading(true);
       newsApi.getArticles(keyword, currentDate, weekAgo)
       .then((articlesData) => {
         setArticles(articlesData.articles);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(`Somthing wrong with setArticles function. ${err.name}: ${err}`);
@@ -133,8 +137,8 @@ function App() {
     }
   }, [jwt]);
   
-  // Saves articles of the current user.
-  function saveArticle(articleIndex) {
+  // Create a new article for general savedArticles.
+  function createNewArticle(articleIndex) {
     const articleData = articles[articleIndex];
     mainApi.createNewArticle(jwt, {
         keyword: keyword,
@@ -146,21 +150,35 @@ function App() {
         image: articleData.urlToImage,
       })
     .then((res) => {
-      console.log('Save article: ', res);
+      console.log('Create new article: ', res);
+      setSavedArticles([res, ...savedArticles]);
     })
     .catch((err) => {
       console.log(err);
     })
   }
 
-  function findKeywords() {
-    
-}
+  function handleSaveArticle(articleIndex) {
+    const isSaved = savedArticles.some(saveArticle => saveArticle.link === articles[articleIndex].url);
+    if(isSaved) {
+      const selectArticle = savedArticles.filter(article => article["link"] === articles[articleIndex].url);
+      mainApi.savedArticle(jwt, selectArticle[0]._id)
+        .then(res => {
+          console.log(`The article was saved: ${res}`);
+        })
+        .catch((err) => {
+          console.log(`Error in save article: ${err}`);
+        })
+    } else {
+      createNewArticle(articleIndex);
+    }
+  };
 
   function unsaveArticle(articleId) {
     mainApi.unsavedArticle(jwt, articleId)
     .then(res => {
       console.log(`${res}: Card ${articleId} was deleted.`);
+      setSavedArticles((savedArticles) => savedArticles.filter((article) => article._id !== articleId))
     })
     .catch(err => {
       console.log(`Something went wrong with unsaveArticle function: ${err}`);
@@ -183,8 +201,8 @@ function App() {
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
                   articles={savedArticles}
+                  savedArticles={savedArticles}
                   unsaveArticle={unsaveArticle}
-                  mostKeywords={findKeywords}
                 />} 
             />
 
@@ -192,13 +210,17 @@ function App() {
               <Main 
                 currentUser={currentUser}
                 loggedIn={isLoggedIn}
+                isLoading={isLoading}
                 handleSignOut={handleSignOut}
                 openPopupSignin={openPopupSignin}
                 openPopupSignup={openPopupSignup}
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
+                keyword={keyword}
                 articles={articles}
+                savedArticles={savedArticles}
                 handleSearchKeyword={handleSearchKeyword}
-                handleSaveArticle={saveArticle}
+                handleSaveArticle={handleSaveArticle}
+                unsaveArticle={unsaveArticle}
               />} 
             />
 

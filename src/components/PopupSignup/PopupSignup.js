@@ -31,7 +31,7 @@ function PopupSignup(props) {
                 <input 
                     type="email" 
                     className="popup__input popup__input_content_email" 
-                    id="input-email" 
+                    id="input-email-signup" 
                     name="email" 
                     placeholder="Enter Email" 
                     minLength="2" 
@@ -47,7 +47,7 @@ function PopupSignup(props) {
                 <input 
                     type="password" 
                     className="popup__input popup__input_content_password" 
-                    id="input-password" 
+                    id="input-password-signup" 
                     name="password" 
                     placeholder="Enter password" 
                     minLength="2" 

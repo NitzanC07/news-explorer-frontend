@@ -25,7 +25,6 @@ function SavedNews(props) {
                 amountArticles={props.articles.length}
                 username={currentUser.username}
                 articles={props.articles}
-                mostKeywords={props.mostKeywords}
             />
 
             <NewsCardList 
@@ -33,6 +32,7 @@ function SavedNews(props) {
                 topRightIcon={[trashIcon, trashIconActive]}
                 textIcon="Remove from saved articles"
                 articles={props.articles}
+                savedArticles={props.savedArticles}
                 unsaveArticle={props.unsaveArticle}
             />
         </section>
