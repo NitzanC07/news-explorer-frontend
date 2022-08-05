@@ -35,8 +35,9 @@ function NewsCard(props) {
 
     function saveIconClick() {
         if (props.loggedIn) {
-            props.handleSaveArticle(props.id, props.article)
-            setSaveIcon(props.topRightIcon[2])
+            props.handleSaveArticle(props.id, props.article);
+            setSaveIcon(props.topRightIcon[2]);
+            setIsShown(false);
         } else {
             props.openPopupSignin();
         }
