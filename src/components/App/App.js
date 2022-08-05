@@ -51,6 +51,7 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
+    setSavedArticles([]);
   }
 
   // Automatic logining in for existing user which saved in local storage.
