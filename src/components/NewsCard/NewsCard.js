@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function NewsCard(props) {
 
     // console.log(`NewsCard: ${props}`);
 
     const [isShown, setIsShown] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
     const [saveIcon, setSaveIcon] = useState(props.topRightIcon[0]);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    useEffect(() => {
+        if(props.page === "main") {
+            setIsSaved(props.savedArticles.some(savedArticle => savedArticle.link === props.article.url));
+            isSaved ? setSaveIcon(props.topRightIcon[2]) : setSaveIcon(props.topRightIcon[0]);
+        } else {
+            setIsSaved(true);
+        }
+        
+    }, [isSaved, props.article.url, props.savedArticles, props.topRightIcon, props.page])
+
 
     function saveIconEnterMoouse() {
-        setSaveIcon(props.topRightIcon[1]);
-        setIsShown(true);
+        if(!isSaved) {
+            setSaveIcon(props.topRightIcon[1]);
+            setIsShown(true);
+        }
     }
 
     function saveIconLeaveMoouse() {
-        setSaveIcon(props.topRightIcon[0]);
-        setIsShown(false);
+        if(!isSaved) {
+            setSaveIcon(props.topRightIcon[0]);
+            setIsShown(false);
+        }
     }
 
     function saveIconClick() {
         if (props.loggedIn) {
-            props.handleSaveArticle(props.id)
+            props.handleSaveArticle(props.id, props.article)
             setSaveIcon(props.topRightIcon[2])
         } else {
             props.openPopupSignin();
@@ -28,7 +44,14 @@ function NewsCard(props) {
     }
 
     function unsaveArticle() {
-        props.unsaveArticle(props.article._id);
+        if(props.page === "main") {
+            const selectArticle = props.savedArticles.filter(savedArticle => savedArticle.link === props.article.url);
+            props.unsaveArticle(selectArticle[0]._id);
+        }
+        if(props.page === "saved-articles") {
+            props.unsaveArticle(props.article._id);
+        }
+        
     }
 
     return(
@@ -54,7 +77,7 @@ function NewsCard(props) {
                     type="button"
                     onMouseEnter={saveIconEnterMoouse}
                     onMouseLeave={saveIconLeaveMoouse}
-                    onClick={props.page === "main" ? saveIconClick : unsaveArticle}
+                    onClick={isSaved ? unsaveArticle : saveIconClick }
                 >
                     <img src={saveIcon} alt="Save icon" />
                 </button>

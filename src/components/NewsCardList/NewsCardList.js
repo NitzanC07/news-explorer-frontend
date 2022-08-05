@@ -51,6 +51,7 @@ function NewsCardList(props) {
                                 openPopupSignin={props.openPopupSignin}    
                                 handleSaveArticle={props.handleSaveArticle}    
                                 unsaveArticle={props.unsaveArticle}
+                                savedArticles={props.savedArticles}
                             />
                         ))
                     }

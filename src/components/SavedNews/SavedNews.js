@@ -32,6 +32,7 @@ function SavedNews(props) {
                 topRightIcon={[trashIcon, trashIconActive]}
                 textIcon="Remove from saved articles"
                 articles={props.articles}
+                savedArticles={props.savedArticles}
                 unsaveArticle={props.unsaveArticle}
             />
         </section>

@@ -47,8 +47,10 @@ function Main(props) {
                         textIcon={props.loggedIn ? "Click to save article" : "Sign in to save articles"}
                         openPopupSignin={props.openPopupSignin}
                         articles={props.articles}
+                        savedArticles={props.savedArticles}
                         createArticle={props.createArticle}
                         handleSaveArticle={props.handleSaveArticle}
+                        unsaveArticle={props.unsaveArticle}
                     />   
             }
 

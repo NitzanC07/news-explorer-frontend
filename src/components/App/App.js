@@ -136,8 +136,8 @@ function App() {
     }
   }, [jwt]);
   
-  // Saves articles of the current user.
-  function saveArticle(articleIndex) {
+  // Create a new article for general savedArticles.
+  function createNewArticle(articleIndex) {
     const articleData = articles[articleIndex];
     mainApi.createNewArticle(jwt, {
         keyword: keyword,
@@ -149,12 +149,28 @@ function App() {
         image: articleData.urlToImage,
       })
     .then((res) => {
-      console.log('Save article: ', res);
+      console.log('Create new article: ', res);
     })
     .catch((err) => {
       console.log(err);
     })
   }
+
+  function handleSaveArticle(articleIndex) {
+    const isSaved = savedArticles.some(saveArticle => saveArticle.link === articles[articleIndex].url);
+    if(isSaved) {
+      const selectArticle = savedArticles.filter(article => article["link"] === articles[articleIndex].url);
+      mainApi.savedArticle(jwt, selectArticle[0]._id)
+        .then(res => {
+          console.log(`The article was saved: ${res}`);
+        })
+        .catch((err) => {
+          console.log(`Error in save article: ${err}`);
+        })
+    } else {
+      createNewArticle(articleIndex);
+    }
+  };
 
   function unsaveArticle(articleId) {
     mainApi.unsavedArticle(jwt, articleId)
@@ -165,8 +181,6 @@ function App() {
       console.log(`Something went wrong with unsaveArticle function: ${err}`);
     })
   }
-
-  
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -184,6 +198,7 @@ function App() {
                   handleSignOut={handleSignOut}
                   loggedIn={isLoggedIn}
                   articles={savedArticles}
+                  savedArticles={savedArticles}
                   unsaveArticle={unsaveArticle}
                 />} 
             />
@@ -199,8 +214,10 @@ function App() {
                 handleRegisterSuccessfully={handleRegisterSuccessfully}
                 keyword={keyword}
                 articles={articles}
+                savedArticles={savedArticles}
                 handleSearchKeyword={handleSearchKeyword}
-                handleSaveArticle={saveArticle}
+                handleSaveArticle={handleSaveArticle}
+                unsaveArticle={unsaveArticle}
               />} 
             />
 
