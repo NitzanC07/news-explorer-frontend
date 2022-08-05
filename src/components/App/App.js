@@ -150,6 +150,7 @@ function App() {
       })
     .then((res) => {
       console.log('Create new article: ', res);
+      setSavedArticles([res, ...savedArticles]);
     })
     .catch((err) => {
       console.log(err);
@@ -176,6 +177,7 @@ function App() {
     mainApi.unsavedArticle(jwt, articleId)
     .then(res => {
       console.log(`${res}: Card ${articleId} was deleted.`);
+      setSavedArticles((savedArticles) => savedArticles.filter((article) => article._id !== articleId))
     })
     .catch(err => {
       console.log(`Something went wrong with unsaveArticle function: ${err}`);

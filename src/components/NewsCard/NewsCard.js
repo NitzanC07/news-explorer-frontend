@@ -16,7 +16,6 @@ function NewsCard(props) {
         } else {
             setIsSaved(true);
         }
-        
     }, [isSaved, props.article.url, props.savedArticles, props.topRightIcon, props.page])
 
 
