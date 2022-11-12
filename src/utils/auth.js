@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.nitzan-fp.students.nomoredomainssbs.ru";
+export const BASE_URL = "https://api.nitzan-practicum.students.nomoredomainssbs.ru";
 
 export const checkResponse = (res) => {
   // console.log(`checkResponse: ${res}`);
