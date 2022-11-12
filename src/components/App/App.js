@@ -129,7 +129,6 @@ function App() {
       mainApi.getSavedArticles(jwt)
         .then(res => {
           setSavedArticles(res);
-          // console.log(`getSavedArticles: ${res}`);
         })
         .catch(err => {
           console.log(`Error in getSavedArticles: ${err}`);
@@ -150,7 +149,6 @@ function App() {
         image: articleData.urlToImage,
       })
     .then((res) => {
-      console.log('Create new article: ', res);
       setSavedArticles([res, ...savedArticles]);
     })
     .catch((err) => {
@@ -177,7 +175,7 @@ function App() {
   function unsaveArticle(articleId) {
     mainApi.unsavedArticle(jwt, articleId)
     .then(res => {
-      console.log(`${res}: Card ${articleId} was deleted.`);
+      // console.log(`${res}: Card ${articleId} was deleted.`);
       setSavedArticles((savedArticles) => savedArticles.filter((article) => article._id !== articleId))
     })
     .catch(err => {

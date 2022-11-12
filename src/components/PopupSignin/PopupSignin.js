@@ -13,6 +13,8 @@ function PopupSignin(props) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.onSubmit(email, password)
+        setEmail('');
+        setPassword('');
     }
 
     return(
