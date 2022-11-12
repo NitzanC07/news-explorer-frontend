@@ -1,21 +1,33 @@
 # Final Project - Practicum by Yandex
+Date: August 4, 2022\
 Student: Nitzan Cohen\
-Date: August 4, 2022
+Course: Web Development, Practicum by Yandex
 
 ## About the project
-I did the project as part of the final project of Practicum's web development course. As part of this project and the course in general, I learned to use a variety of technological tools for website development. Starting with the use of HTML and CSS at the level of designing and building the website, and of course also tools of the functionality of the website with the help of JavaScript and React. On the server side, I learned to build a server with Node.js and Express.js. and work with a database using MongoDB. Beside all of these skills I worked with Git and GitHub throughout the course.
+I did the project as part of the final project of Practicum's web development course. As part of this project and the course in general, I learned to use a variety of technological tools for website development. Here is the client side (Front End) part of the project. I used with HTML and CSS at this section of designing and building the website. I built it with React.js and I connected this section to two servers, one is the source of articles NewsApi, and other is server that I was created for saving users and articles.\
+For building the server I used with JavaScript, I used with Node.js and Express.js. I created database using MongoDB to save all the details about registered users and thier saves articles. Of course all of this work made on Git and GitHub, and every section created with a different branch.
 
-### Link to deployed app
-[Visit NewsExplorer now](https://www.nitzan-fp.students.nomoredomainssbs.ru)
+### Link to live app
+Visit [NewsExplorer](https://www.nitzan-practicum.students.nomoredomainssbs.ru) now.
 
 ## Technologies in this project
-* React
+### Front End:
+* React.js
 * JSX
 * CSS
+### Back End:
 * Node.js
 * Express.js
 * MongoDB
-* Git
+
+### Git branches:
+* stage-1 - All about building the server with Node.js and Express.js.
+* stage-2 - All about building the markup and styles with React and CSS.
+* stage-3 - All about functionality and authentication.
+
+### API
+* An API for saving users authentication and saving thier articles. [Back End repository](https://github.com/NitzanC07/news-explorer-api)
+* An API powered by NewsApi for fetch articles by specific keyword. [NewsApi](https://newsapi.org/)
 
 ## How to download the project
 Firstly, you need to to clone this repository to your local machine.
@@ -28,7 +40,6 @@ npm start
 ```
 And to deploy the project to the server you need to run to commands.
 ```
-npm run build
-scp -r ./build/* nitzancohen@35.239.222.234:/home/nitzancohen/news-explorer-frontend
+npm run deploy
 ```
 
