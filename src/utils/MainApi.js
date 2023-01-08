@@ -1,4 +1,5 @@
-const BASE_URL = "https://api.nitzan-practicum.students.nomoredomainssbs.ru";
+// const BASE_URL = "https://api.nitzan-practicum.students.nomoredomainssbs.ru";
+const BASE_URL_local = "http://localhost:4000";
 
 export const checkResponse = (res) => {
     // console.log(`checkResponse: ${res}`);
@@ -10,7 +11,7 @@ export const checkResponse = (res) => {
   }
 
 export const getSavedArticles = (jwt) => {
-    return fetch(`${BASE_URL}/articles`, {
+    return fetch(`${BASE_URL_local}/articles`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${jwt}`,
@@ -21,7 +22,7 @@ export const getSavedArticles = (jwt) => {
 }
 
 export const createNewArticle = (jwt, articleData) => {
-    return fetch(`${BASE_URL}/articles`, {
+    return fetch(`${BASE_URL_local}/articles`, {
         method: 'POST',
         headers: {
             authorization: `Bearer ${jwt}`,
@@ -33,7 +34,7 @@ export const createNewArticle = (jwt, articleData) => {
 }
 
 export const savedArticle = (jwt, articleId) => {
-    return fetch(`${BASE_URL}/articles/${articleId}/saved`, {
+    return fetch(`${BASE_URL_local}/articles/${articleId}/saved`, {
         method: 'PUT',
         headers: {
             authorization: `Bearer ${jwt}`,
@@ -44,7 +45,7 @@ export const savedArticle = (jwt, articleId) => {
 }
 
 export const unsavedArticle = (jwt, articleId) => {
-    return fetch(`${BASE_URL}/articles/${articleId}`, {
+    return fetch(`${BASE_URL_local}/articles/${articleId}`, {
         method: 'DELETE',
         headers: {
             authorization: `Bearer ${jwt}`,

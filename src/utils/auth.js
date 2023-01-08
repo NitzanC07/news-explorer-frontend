@@ -1,4 +1,5 @@
-export const BASE_URL = "https://api.nitzan-practicum.students.nomoredomainssbs.ru";
+// export const BASE_URL = "https://api.nitzan-practicum.students.nomoredomainssbs.ru";
+const BASE_URL_local = "http://localhost:4000";
 
 export const checkResponse = (res) => {
   // console.log(`checkResponse: ${res}`);
@@ -11,7 +12,7 @@ export const checkResponse = (res) => {
 
 export const register = (email, password, username) => {
   // console.log('auth-register:', email, password, username);
-  return fetch(`${BASE_URL}/signup`, {
+  return fetch(`${BASE_URL_local}/signup`, {
     method: "POST",
     headers: {
       'Accept': "application/json",
@@ -32,7 +33,7 @@ export const register = (email, password, username) => {
 
 export const login = (email, password) => {
   // console.log('auth-login:', email, password);
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${BASE_URL_local}/signin`, {
     method: "POST",
     headers: {
       'Accept': "application/json",
@@ -48,7 +49,7 @@ export const login = (email, password) => {
 
 export const getContent = (jwt) => {
   // console.log(`in getContent function: ${jwt}`);
-  return fetch(`${BASE_URL}/users/me`, {
+  return fetch(`${BASE_URL_local}/users/me`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
