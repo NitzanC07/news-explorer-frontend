@@ -8,6 +8,7 @@ I did the project as part of the final project of Practicum's web development co
 For building the server I used with JavaScript, I used with Node.js and Express.js. I created database using MongoDB to save all the details about registered users and thier saves articles. Of course all of this work made on Git and GitHub, and every section created with a different branch.
 
 ### Link to live app
+![Project's demo](https://www.youtube.com/watch?v=0tsIDbsNi-c)
 Visit [NewsExplorer](https://www.nitzan-practicum.students.nomoredomainssbs.ru) now.
 
 ## Technologies in this project
