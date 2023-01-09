@@ -8,7 +8,7 @@ I did the project as part of the final project of Practicum's web development co
 For building the server I used with JavaScript, I used with Node.js and Express.js. I created database using MongoDB to save all the details about registered users and thier saves articles. Of course all of this work made on Git and GitHub, and every section created with a different branch.
 
 ### Live app's demo
-Click on the image to see the demo of the project.
+Click on the image to see the demo of the project.<br />
 <a href="https://www.youtube.com/watch?v=-rEoFPwmu08" target="_blank"><img src="./src/images/ScreenshotProject.png" alt="cover" width="500"></a>
 
 ## Technologies in this project
