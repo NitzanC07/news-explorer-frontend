@@ -7,9 +7,9 @@ Course: Web Development, Practicum by Yandex
 I did the project as part of the final project of Practicum's web development course. As part of this project and the course in general, I learned to use a variety of technological tools for website development. Here is the client side (Front End) part of the project. I used with HTML and CSS at this section of designing and building the website. I built it with React.js and I connected this section to two servers, one is the source of articles NewsApi, and other is server that I was created for saving users and articles.\
 For building the server I used with JavaScript, I used with Node.js and Express.js. I created database using MongoDB to save all the details about registered users and thier saves articles. Of course all of this work made on Git and GitHub, and every section created with a different branch.
 
-### Link to live app
-[![Project's demo](https://www.youtube.com/watch?v=0tsIDbsNi-c)]
-Visit [NewsExplorer](https://www.nitzan-practicum.students.nomoredomainssbs.ru) now.
+### Live app's demo
+Click on the image to see the demo of the project.
+<a href="https://www.youtube.com/watch?v=-rEoFPwmu08" target="_blank"><img src="./src/images/ScreenshotProject.png" alt="cover" width="500"></a>
 
 ## Technologies in this project
 ### Front End:
